@@ -1,3 +1,6 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 filetype on
 syntax enable
 set autoindent
@@ -15,6 +18,11 @@ set nospell
 
 " File Types
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+if has("gui_macvim")
+	set background=dark
+	colorscheme base16-vim/colors/base16-tomorrow
+endif
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
