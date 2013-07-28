@@ -1,0 +1,7 @@
+[user]
+	name = Matthew Parnell
+	email = parnmatt@icloud.com
+[core]
+	excludesfile = /Users/parnmatt/.gitignore_global
+[push]
+	default = simple
