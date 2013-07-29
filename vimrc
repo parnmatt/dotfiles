@@ -20,7 +20,7 @@ set nospell
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 set background=dark
-colorscheme base16/colors/base16-tomorrow
+colorscheme base16-tomorrow
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
