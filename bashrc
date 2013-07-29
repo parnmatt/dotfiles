@@ -1,3 +1,6 @@
+# this sets the prompt to my username and directory
+export PS1="[\u@\h \W]\\$ "
+
 # Set Editor to TextMate
 export EDITOR="mate -w"
 
