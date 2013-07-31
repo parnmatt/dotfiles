@@ -38,4 +38,7 @@ for file in $files; do
 	\ln -s $file $homeFile
 done
 
+# Initialising submodules
+\git submodule update --init
+
 \printf "Completed\n"
