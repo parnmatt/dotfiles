@@ -17,6 +17,12 @@ set hidden
 setlocal spell spelllang=en_gb
 set nospell
 
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,trail:·
+
+" Shortcut to toggle hidden characters
+nmap <leader>i :set list!<CR>
+
 " autocommand support portability
 if has("autocmd")
 	autocmd!
@@ -46,11 +52,11 @@ nnoremap Y y$
 " Mapping for Gundo
 nnoremap <F5> :GundoToggle<CR>
 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,trail:·
-
-" Shortcut to toggle hidden characters
-nmap <leader>i :set list!<CR>
+" Commands
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 " Use par for formatting
 set formatprg=par
