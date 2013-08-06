@@ -2,6 +2,6 @@
 	name = Matthew Parnell
 	email = matt@parnmatt.co.uk
 [core]
-	excludesfile = /Users/parnmatt/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
