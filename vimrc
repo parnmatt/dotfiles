@@ -13,6 +13,9 @@ set linebreak
 set hlsearch
 set hidden
 
+" Enable full backspace control
+set backspace=indent,eol,start
+
 " English spelling, disabled by default
 setlocal spell spelllang=en_gb
 set nospell
