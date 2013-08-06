@@ -5,7 +5,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Set oh-my-zsh theme [~/.oh-my-zsh/themes/]
-ZSH_THEME="gnzh"
+ZSH_THEME="bira"
 
 # Editor to vim
 export EDITOR="vim"
