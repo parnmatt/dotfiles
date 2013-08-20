@@ -26,6 +26,19 @@ set listchars=tab:▸\ ,eol:¬,trail:·
 " Shortcut to toggle hidden characters
 nmap <leader>i :set list!<CR>
 
+" Semicolon at end of line
+inoremap <leader>; <C-o>A;<Esc>
+
+" Quick movements
+inoremap II <Esc>I
+inoremap AA <Esc>A
+
+" Prevent using arrow keys in insert mode
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+
 " autocommand support portability
 if has("autocmd")
 	autocmd!
@@ -56,10 +69,10 @@ nnoremap Y y$
 nnoremap <F5> :GundoToggle<CR>
 
 " Commands
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W  w
+:command! Q  q
 
 " Use par for formatting
 set formatprg=par

@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Disable oh-my-zsh auto-update
+DISABLE_AUTO_UPDATE="true"
+
 # Set oh-my-zsh theme [~/.oh-my-zsh/themes/]
 ZSH_THEME="bira"
 
