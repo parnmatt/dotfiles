@@ -2,6 +2,7 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+set nocompatible
 set autoindent
 set tabstop=4
 set softtabstop=4

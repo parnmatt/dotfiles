@@ -35,8 +35,9 @@ plugins=(cp extract git history)
 [[ -f $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 
 # Zsh aliases
-alias zshconfig="$EDITOR ~/.zshrc"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias zshconfig="$EDITOR $HOME/.zshrc"
+alias vimconfig="$EDITOR $HOME/.vimrc"
+alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh

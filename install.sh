@@ -38,6 +38,11 @@ for file in $files; do
 	\ln -s $file $homeFile
 done
 
+# Create a .gitconfig.local if it doesn't exist
+if [ -e ! "$HOME/.gitconfig.local"]; then
+	\touch "$HOME/.gitconfig.local"
+fi
+
 # Initialising submodules
 \git submodule update --init
 

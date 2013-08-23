@@ -26,4 +26,5 @@ function cpfromhep () {
 [[ -f $HOME/.bashrc.local ]] && source "$HOME/.bashrc.local"
 
 # Bash aliases
-alias bashconfig="$EDITOR ~/.bashrc"
+alias bashconfig="$EDITOR $HOME/.bashrc"
+alias vimconfig="$EDITOR $HOME/.vimrc"
