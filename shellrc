@@ -1,0 +1,26 @@
+# Configuration file for both Bash and Zsh
+# Options below can be overridden in ~/.shellrc.local
+
+# Editor to vim
+export EDITOR="vim"
+
+# SSH into HEP Lancaster
+function hep () {
+	ssh mp@lap$1.lancs.ac.uk
+}
+
+# SCP to HEP Lancaster
+function cptohep () {
+	scp $2 mp@lap$1.lancs.ac.uk:$3
+}
+
+# SCP from HEP Lancaster
+function cpfromhep () {
+	scp mp@lap$1.lancs.ac.uk:$2 $3
+}
+
+# Aliases
+alias vimconfig="$EDITOR $HOME/.vimrc"
+
+# Load ~/.shellrc.local
+[[ -f $HOME/.shellrc.local ]] && source "$HOME/.shellrc.local"
