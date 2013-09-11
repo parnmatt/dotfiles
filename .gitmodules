@@ -31,3 +31,6 @@
 [submodule "vim/bundle/visual-star-search"]
 	path = vim/bundle/visual-star-search
 	url = https://github.com/nelstrom/vim-visual-star-search.git
+[submodule "vim/bundle/cern_root"]
+	path = vim/bundle/cern_root
+	url = https://github.com/parnmatt/cern_root.vim.git
