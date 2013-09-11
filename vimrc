@@ -52,8 +52,7 @@ if has("autocmd")
 	syntax enable
 
 	" File Types
-	autocmd BufNewFile,BufRead *.tex setfiletype tex
-	autocmd BufNewFile,BufRead *.md setfiletype markdown
+	autocmd BufNewFile,BufRead *.tex filetype=tex
 endif
 
 " Colour scheme

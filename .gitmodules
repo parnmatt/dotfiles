@@ -34,3 +34,6 @@
 [submodule "vim/bundle/cern_root"]
 	path = vim/bundle/cern_root
 	url = https://github.com/parnmatt/cern_root.vim.git
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
+	url = https://github.com/tpope/vim-markdown.git
