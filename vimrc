@@ -52,7 +52,7 @@ if has("autocmd")
 	syntax enable
 
 	" File Types
-	autocmd BufNewFile,BufRead *.tex filetype=tex
+	autocmd BufNewFile,BufRead *.tex set filetype=tex
 endif
 
 " Colour scheme
