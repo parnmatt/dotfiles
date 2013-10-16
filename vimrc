@@ -20,6 +20,7 @@ set backspace=indent,eol,start
 " English spelling, disabled by default
 setlocal spell spelllang=en_gb
 set nospell
+nnoremap <leader>s 1z=
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·
@@ -60,7 +61,7 @@ set background=dark
 silent! colorscheme base16-tomorrow
 
 " Edit .vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
+noremap <leader>v :tabedit $MYVIMRC<CR>
 
 " Yank rest of line to follow the common convention
 nnoremap Y y$
