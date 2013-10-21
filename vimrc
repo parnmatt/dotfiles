@@ -21,9 +21,14 @@ set backspace=indent,eol,start
 setlocal spell spelllang=en_gb
 set nospell
 nnoremap <leader>s 1z=
+nnoremap <leader>[s [s1z=
+nnoremap <leader>]s ]s1z=e
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·
+
+" map jk to Esc
+noremap jk <Esc>
 
 " Shortcut to toggle hidden characters
 nmap <leader>i :set list!<CR>
