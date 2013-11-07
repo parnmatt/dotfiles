@@ -28,7 +28,7 @@ nnoremap <leader>]s ]s1z=e
 set listchars=tab:▸\ ,eol:¬,trail:·
 
 " map jk to Esc
-noremap jk <Esc>
+inoremap jk <Esc>
 
 " Shortcut to toggle hidden characters
 nmap <leader>i :set list!<CR>
