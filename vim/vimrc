@@ -1,8 +1,28 @@
-" Initialise Pathogen for bundles/plugins
-runtime bundle/pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-
 set nocompatible
+filetype off
+
+" Initialise Vundle (bundle/plugin package manager)
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Vundle manage self
+Bundle "gmarik/vundle"
+
+" Bundles
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-unimpaired"
+Bundle "tpope/vim-abolish"
+Bundle "tpope/vim-repeat"
+Bundle "tpope/vim-markdown"
+Bundle "chriskempson/base16-vim"
+Bundle "sjl/gundo.vim"
+Bundle "godlygeek/tabular"
+Bundle "nelstrom/vim-visual-star-search"
+Bundle "parnmatt/cern_root.vim"
+
+filetype plugin indent on
+
 set autoindent
 set tabstop=4
 set softtabstop=4
@@ -51,7 +71,7 @@ if has("autocmd")
 	autocmd!
 
 	" Source vimrc when saved
-	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd bufwritepost $MYVIMRC source $MYVIMRC
 
 	" Enable file type detection
 	filetype on
