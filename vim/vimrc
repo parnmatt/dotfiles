@@ -20,6 +20,7 @@ Bundle "sjl/gundo.vim"
 Bundle "godlygeek/tabular"
 Bundle "nelstrom/vim-visual-star-search"
 Bundle "parnmatt/cern_root.vim"
+Bundle "tejr/vim-tmux"
 
 filetype plugin indent on
 
