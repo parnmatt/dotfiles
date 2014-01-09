@@ -33,6 +33,8 @@ set number
 set wrap
 set linebreak
 set hlsearch
+set splitbelow
+set splitright
 set hidden
 
 " Enable full backspace control
