@@ -2,33 +2,34 @@ set nocompatible
 filetype off
 
 " Initialise Vundle (bundle/plugin package manager)
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle manage self
-Bundle "gmarik/vundle"
+Plugin 'gmarik/Vundle.vim'
 
-" Bundles
-Bundle "bling/vim-airline"
-Bundle "chriskempson/base16-vim"
-Bundle "godlygeek/csapprox"
-Bundle "godlygeek/tabular"
-Bundle "kien/ctrlp.vim"
-Bundle "nelstrom/vim-visual-star-search"
-Bundle "parnmatt/cern_root.vim"
-Bundle "sjl/gundo.vim"
-Bundle "tejr/vim-tmux"
-Bundle "tommcdo/vim-exchange"
-Bundle "tpope/vim-abolish"
-Bundle "tpope/vim-commentary"
-Bundle "tpope/vim-dispatch"
-Bundle "tpope/vim-eunuch"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-unimpaired"
+" Plugins
+Plugin 'bling/vim-airline'
+Plugin 'chriskempson/base16-vim'
+Plugin 'godlygeek/csapprox'
+Plugin 'godlygeek/tabular'
+Plugin 'kien/ctrlp.vim'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'parnmatt/cern_root.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'tejr/vim-tmux'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 
+call vundle#end()
 filetype plugin indent on
 
 set autoindent
@@ -48,6 +49,9 @@ set hidden
 set laststatus=2
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
 let g:airline_powerline_fonts=1
+
+" CtrlP
+let g:ctrlp_arg_map = 1
 
 " Enable full backspace control
 set backspace=indent,eol,start
