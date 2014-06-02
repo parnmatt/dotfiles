@@ -16,6 +16,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'parnmatt/cern_root.vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
 Plugin 'tejr/vim-tmux'
 Plugin 'tommcdo/vim-exchange'
@@ -48,16 +49,20 @@ set hidden
 " airline
 set laststatus=2
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 
 " CtrlP
 let g:ctrlp_arg_map = 1
+
+" UltiSnips
+let g:UltiSnipsEditSplit = "horizontal"
+nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Enable full backspace control
 set backspace=indent,eol,start
 
 " English spelling, disabled by default
-setlocal spell spelllang=en_gb
+set spell spelllang=en_gb
 set nospell
 nnoremap <leader>s 1z=
 nnoremap <leader>[s [s1z=
