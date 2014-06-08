@@ -1,0 +1,38 @@
+snippet class "Class declaration" b
+${2:public} class ${1:`!v expand('%:r')`} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet const "Global constant" b
+${4:protected} final static ${2:int} ${1:${VISUAL:CONST}} = ${3:VALUE};${0: // }
+endsnippet
+
+snippet main "main() method" b
+${1:public} static void main(String[] ${2:args}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet /f(unction)?/ "Function / method" br
+${4:public}${3: static} ${5:void} ${1:function}(${2:args}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet for "for loop" b
+for (${1:int ${2:i}} = ${3:0}; ${4:${5:$2} ${6::<} ${7:value}}; ${8:++$2}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet try "try-catch-final" b
+try {
+	${1:${VISUAL}}
+} catch (${2:Exception} ${3:e}) {
+	$4
+}${5: final {
+	$6
+}}
+$0
+endsnippet
