@@ -21,3 +21,48 @@ endsnippet
 snippet /([-+]?\d*\.?\d*)\\?tw/ "Text width" r
 `!p snip.rv = match.group(1)`\textwidth
 endsnippet
+
+snippet part "Part" b
+\part${2:[${3:short-title}]}{${1:title}}
+\label{part:${4:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0:${VISUAL}}
+
+% part $4
+endsnippet
+
+snippet /cha(pter)?/ "Chapter" br
+\chapter${2:[${3:short-title}]}{${1:title}}
+\label{cha:${4:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0:${VISUAL}}
+
+% chapter $4
+endsnippet
+
+snippet /sec(tion)?/ "Section" br
+\section${2:[${3:short-title}]}{${1:title}}
+\label{sec:${4:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0:${VISUAL}}
+
+% section $4
+endsnippet
+
+snippet /sub(section)?/ "Subsection" br
+\subsection${2:[${3:short-title}]}{${1:title}}
+\label{sub:${4:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0:${VISUAL}}
+
+% subsection $4
+endsnippet
+
+snippet /s(ub)?sub(section)?/ "Subsubsection" br
+\subsubsection${2:[${3:short-title}]}{${1:title}}
+\label{ssub:${4:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0:${VISUAL}}
+
+% subsubsection $4
+endsnippet
