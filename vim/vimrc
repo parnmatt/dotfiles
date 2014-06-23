@@ -104,6 +104,7 @@ if has("autocmd")
 	" File Types
 	autocmd BufNewFile,BufRead *.tex set filetype=tex
 	autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
+	autocmd filetype tex setlocal iskeyword+=:,.,_
 	autocmd filetype java setlocal makeprg=javac\ %
 endif
 

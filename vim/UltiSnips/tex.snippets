@@ -10,6 +10,12 @@ snippet /item(ize)?/ "Itemize environment" br
 \end{itemize}
 endsnippet
 
+snippet /desc(ription)?/ "Description environment" br
+\begin{description}
+	\item[$1] ${0:${VISUAL}}
+\end{description}
+endsnippet
+
 snippet i "Item"
 \item ${0:${VISUAL}}
 endsnippet
