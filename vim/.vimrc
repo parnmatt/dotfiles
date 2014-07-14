@@ -50,7 +50,13 @@ set hidden
 
 " airline
 set laststatus=2
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+if has("gui_running")
+	if has("gui_gtk2")
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+	else
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+	endif
+endif
 let g:airline_powerline_fonts = 1
 
 " CtrlP
