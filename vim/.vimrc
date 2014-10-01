@@ -9,6 +9,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'AndrewRadev/switch.vim'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
 Plugin 'godlygeek/csapprox'
@@ -16,30 +18,38 @@ Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'parnmatt/vim-root'
-Plugin 'SirVer/ultisnips'
-Plugin 'sjl/gundo.vim'
 Plugin 'tejr/vim-tmux'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'whatyouhide/vim-lengthmatters'
+
+if has('python') || has('python3')
+    Plugin 'SirVer/ultisnips'
+    Plugin 'sjl/gundo.vim'
+endif
+
 
 call vundle#end()
 filetype plugin indent on
 
 set autoindent
+set autoread
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 set number
 set wrap
 set linebreak
@@ -52,9 +62,9 @@ set hidden
 set laststatus=2
 if has("gui_running")
 	if has("gui_gtk2")
-		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+		set guifont=Sauce\ Code\ Powerline\ 11
 	else
-		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+		set guifont=Sauce\ Code\ Powerline:h11
 	endif
 endif
 let g:airline_powerline_fonts = 1
