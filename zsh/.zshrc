@@ -11,17 +11,13 @@ DISABLE_AUTO_UPDATE="true"
 ZSH_THEME="bira"
 
 # oh-my-zsh plugins [~/.oh-my-zsh/plugins/] 
-plugins=(cp extract git history)
+plugins=(cp extract git history vi-mode)
 
 # Load ~/.shellrc
 [[ -f $HOME/.shellrc ]] && source "$HOME/.shellrc"
 
 # Load ~/.zshrc.local
 [[ -f $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
-
-# Zsh aliases
-alias zshconfig="$EDITOR $HOME/.zshrc"
-alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh

@@ -1,0 +1,36 @@
+# Personal Details
+set realname = "Matthew Parnell"
+set from     = "m.parnell@lancaster.ac.uk"
+set envelope_from
+
+# Account Details
+source "gpg2 -dq ~/.mutt_login.gpg |"
+set imap_user = $my_user
+set imap_pass = $my_pass
+set smtp_url  = "smtp://$imap_user@smtp.office365.com:587"
+set smtp_pass = $imap_pass
+set folder    = "imaps://outlook.office365.com:993"
+set ssl_force_tls
+set ssl_starttls
+
+# Mailboxes
+set spoolfile = "=INBOX"
+set record    = "=Sent Items"
+set postponed = "=Drafts"
+mailboxes     = "=INBOX"
+
+# No timeout
+unset imap_passive
+set imap_keepalive = 180
+set imap_idle
+set timeout = 0
+set mail_check = 120
+
+# Cache
+set header_cache = ~/.cache/mutt
+
+# Message options
+set editor = "vim -f"
+
+# set edit_headers
+auto_view text/html
