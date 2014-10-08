@@ -29,6 +29,11 @@ set mail_check = 120
 # Cache
 set header_cache = ~/.cache/mutt
 
+# Mailing Lists
+source "gpg2 -dq ~/.mutt_lists.gpg |"
+set followup_to
+set honor_followup_to = yes
+
 # Message options
 set editor = "vim -f"
 
