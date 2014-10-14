@@ -29,6 +29,9 @@ set mail_check = 120
 # Cache
 set header_cache = ~/.cache/mutt
 
+# Aliases
+source "gpg2 -dq ~/.mutt_aliases.gpg |"
+
 # Mailing Lists
 source "gpg2 -dq ~/.mutt_lists.gpg |"
 set followup_to
