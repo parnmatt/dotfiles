@@ -12,10 +12,6 @@ endfunction
 
 if !filereadable($HOME . '/.vim/autoload/plug.vim')
     call InstallPlug()
-    execute 'source ' . $HOME . '/.vim/autoload/plug.vim'
-    PlugInstall
-    source $MYVIMRC
-    bdelete
 endif
 
 " Initialise vim-plug (plugin package manager)
