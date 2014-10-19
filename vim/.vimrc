@@ -1,47 +1,43 @@
 set nocompatible
 filetype off
 
-" Initialise Vundle (bundle/plugin package manager)
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Vundle manage self
-Plugin 'gmarik/Vundle.vim'
+" Initialise vim-plug (plugin package manager)
+call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'AndrewRadev/switch.vim'
-Plugin 'bling/vim-airline'
-Plugin 'chriskempson/base16-vim'
-Plugin 'godlygeek/csapprox'
-Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
-Plugin 'nelstrom/vim-visual-star-search'
-Plugin 'parnmatt/vim-root'
-Plugin 'tejr/vim-tmux'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-capslock'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'whatyouhide/vim-lengthmatters'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/switch.vim'
+Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'godlygeek/csapprox'
+Plug 'godlygeek/tabular'
+Plug 'kien/ctrlp.vim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'parnmatt/vim-root'
+Plug 'tejr/vim-tmux'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-capslock'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'whatyouhide/vim-lengthmatters'
 
 if has('python') || has('python3')
-    Plugin 'SirVer/ultisnips'
-    Plugin 'sjl/gundo.vim'
+    Plug 'SirVer/ultisnips'
+    Plug 'sjl/gundo.vim'
 endif
 
+call plug#end()
 
-call vundle#end()
 filetype plugin indent on
 
 set autoindent
