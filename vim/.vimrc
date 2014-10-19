@@ -1,6 +1,23 @@
 set nocompatible
 filetype off
 
+" vim-plug installation helper
+function! InstallPlug()
+    echom 'Installing vim-plug'
+    silent! call mkdir($HOME . '/.vim/autoload', 'p')
+    silent! execute '!curl -fLo ' . $HOME . '/.vim/autoload/plug.vim '
+                \ . 'https://raw.githubusercontent.com/'
+                \ . 'junegunn/vim-plug/master/plug.vim'
+endfunction
+
+if !filereadable($HOME . '/.vim/autoload/plug.vim')
+    call InstallPlug()
+    execute 'source ' . $HOME . '/.vim/autoload/plug.vim'
+    PlugInstall
+    source $MYVIMRC
+    bdelete
+endif
+
 " Initialise vim-plug (plugin package manager)
 call plug#begin('~/.vim/plugged')
 
