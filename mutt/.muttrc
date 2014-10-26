@@ -34,3 +34,20 @@ set editor = "vim -f"
 
 # set edit_headers
 auto_view text/html
+
+# Vim keybindings
+# Generic
+bind generic h select-entry
+# Index
+bind index h change-folder
+bind index l display-message
+# Pager
+bind pager h exit
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+# Attach
+bind attach h exit
+bind attach l view-attach
+# Compose
+bind compose l view-attach
