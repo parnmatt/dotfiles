@@ -30,6 +30,7 @@ set mail_check = 120
 set header_cache = ~/.cache/mutt
 
 # Aliases
+alias me Matthew Parnell <m.parnell@lancaster.ac.uk>
 source "gpg2 -dq ~/.mutt_aliases.gpg |"
 
 # Mailing Lists
