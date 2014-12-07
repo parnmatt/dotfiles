@@ -13,8 +13,8 @@ ZSH_THEME="bira"
 # oh-my-zsh plugins [~/.oh-my-zsh/plugins/] 
 plugins=(cp extract git history vi-mode)
 
-# Load ~/.shellrc
-[[ -f $HOME/.shellrc ]] && source "$HOME/.shellrc"
+# Set editor
+export EDITOR="vim"
 
 # Load ~/.zshrc.local
 [[ -f $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
