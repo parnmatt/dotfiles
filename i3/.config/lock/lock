@@ -1,0 +1,5 @@
+#!/bin/sh
+i3lock  --dpms \
+        --ignore-empty-password \
+        --image="$HOME/.config/lock/lock.png" \
+        --color=000000
