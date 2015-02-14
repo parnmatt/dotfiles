@@ -85,10 +85,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -125,6 +125,9 @@ bindsym XF86MonBrightnessUp exec light -A 20
 # media
 bindsym XF86AudioLowerVolume exec amixer -q set Master 10%-
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+
+
+# Print screen
+bindsym Print exec scrot
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
