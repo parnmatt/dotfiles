@@ -1,23 +1,10 @@
-# Configuration file for Zsh
-# Options below can be overridden in ~/.zshrc.local
+# Configuration file of ZSH
+# Options below can be overridden in local scripts
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export EDITOR="vim"
 
-# Disable oh-my-zsh auto-update
-DISABLE_AUTO_UPDATE="true"
+# Load framework
+[[ -x "$HOME/.config/zsh/framework" ]] && source "$HOME/.config/zsh/framework" 
 
-# Set oh-my-zsh theme [~/.oh-my-zsh/themes/]
-ZSH_THEME="bira"
-
-# oh-my-zsh plugins [~/.oh-my-zsh/plugins/] 
-plugins=(cp extract git history vi-mode)
-
-# Load ~/.shellrc
-[[ -f $HOME/.shellrc ]] && source "$HOME/.shellrc"
-
-# Load ~/.zshrc.local
-[[ -f $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
-
-# Load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# Load local scripts
+[[ -x "$HOME/zshrc.local" ]] && source "$HOME/.zshrc.local"

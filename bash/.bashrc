@@ -4,11 +4,8 @@
 # Set Prompt
 export PS1="[\u@\h \W]\\$ "
 
-# Load ~/.shellrc
-[[ -f $HOME/.shellrc ]] && source "$HOME/.shellrc"
+# Set editor
+export EDITOR="vim"
 
 # Load ~/.bashrc.local
-[[ -f $HOME/.bashrc.local ]] && source "$HOME/.bashrc.local"
-
-# Bash aliases
-alias bashconfig="$EDITOR $HOME/.bashrc"
+[[ -x $HOME/.bashrc.local ]] && source "$HOME/.bashrc.local"
