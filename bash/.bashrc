@@ -8,4 +8,4 @@ export PS1="[\u@\h \W]\\$ "
 export EDITOR="vim"
 
 # Load ~/.bashrc.local
-[[ -f $HOME/.bashrc.local ]] && source "$HOME/.bashrc.local"
+[[ -x $HOME/.bashrc.local ]] && source "$HOME/.bashrc.local"
