@@ -7,4 +7,4 @@ export EDITOR="vim"
 [[ -x "$HOME/.config/zsh/framework" ]] && source "$HOME/.config/zsh/framework" 
 
 # Load local scripts
-[[ -x "$HOME/zshrc.local" ]] && source "$HOME/.zshrc.local"
+[[ -x "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
