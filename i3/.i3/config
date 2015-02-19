@@ -52,18 +52,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# move container to output
-bindsym $mod+Left move container to output left
-bindsym $mod+Down move container to output down
-bindsym $mod+Up move container to output up
-bindsym $mod+Right move container to output right
-
-# move workspace to output
-bindsym $mod+Shift+Left move workspace to output left
-bindsym $mod+Shift+Down move workspace to output down
-bindsym $mod+Shift+Up move workspace to output up
-bindsym $mod+Shift+Right move workspace to output right
-
 # split in horizontal orientation
 bindsym $mod+Shift+backslash split h
 
@@ -113,6 +101,22 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+# move focused container to output
+bindsym $mod+Left move container to output left
+bindsym $mod+Down move container to output down
+bindsym $mod+Up move container to output up
+bindsym $mod+Right move container to output right
+
+# move workspace to output
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Down move workspace to output down
+bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+Right move workspace to output right
+
+# move up/down workspaces
+bindsym $mod+Shift+period workspace next
+bindsym $mod+Shift+comma workspace prev
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
