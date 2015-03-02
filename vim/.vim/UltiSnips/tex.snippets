@@ -1,12 +1,24 @@
 snippet /\\?b(egin)?/ "begin / end environment" br
 \begin{$1}
-	${0:${VISUAL}}
+    ${0:${VISUAL}}
 \end{$1}
+endsnippet
+
+snippet /\\?center/ "begin / end centre environment" br
+\begin{center}
+    ${0:${VISUAL}}
+\end{center}
+endsnippet
+
+snippet /\\?frame/ "begin / end frame environment" br
+\begin{frame}${1:[label=$2]}${3:{${4:\insertsection}}${5:{${6:\insertsubsection}}}}
+    ${0:${VISUAL}}
+\end{frame}
 endsnippet
 
 snippet /item(ize)?/ "Itemize environment" br
 \begin{itemize}
-	\item ${0:${VISUAL}}
+    \item ${0:${VISUAL}}
 \end{itemize}
 endsnippet
 
