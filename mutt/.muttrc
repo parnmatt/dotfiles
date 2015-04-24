@@ -41,7 +41,8 @@ set honor_followup_to = yes
 # Message options
 set editor = "vim -f"
 
-# set edit_headers
+# Message viewing
+alternative_order text/plain text/html
 auto_view text/html
 
 # Vim keybindings
@@ -55,6 +56,7 @@ bind pager h exit
 bind pager j next-line
 bind pager k previous-line
 bind pager l view-attachments
+bind pager i display-toggle-weed
 # Attach
 bind attach h exit
 bind attach l view-attach
