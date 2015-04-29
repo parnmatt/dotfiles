@@ -48,7 +48,6 @@ Plug 'whatyouhide/vim-lengthmatters'
 
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
-    Plug 'sjl/gundo.vim'
 endif
 
 call plug#end()
