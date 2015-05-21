@@ -1,0 +1,5 @@
+" Configuration file for Pentadactyl
+" a Vim-like browser add-on for Firefox
+
+" Enter 'Pass Through Mode' when using IPython Notebook
+autocmd LocationChange localhost:8888 :normal! <C-z>
