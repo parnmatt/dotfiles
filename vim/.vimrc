@@ -86,6 +86,9 @@ let g:ctrlp_arg_map = 1
 let g:UltiSnipsEditSplit = "horizontal"
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
+" Syntastic
+let g:syntastic_python_checkers = ['python', 'pep8']
+
 " Enable full backspace control
 set backspace=indent,eol,start
 
@@ -144,8 +147,6 @@ noremap <leader>v :tabedit $MYVIMRC<CR>
 " Yank rest of line to follow the common convention
 nnoremap Y y$
 
-" Mapping for Gundo
-nnoremap <F5> :GundoToggle<CR>
 
 " Commands
 :command! WQ wq
