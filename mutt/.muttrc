@@ -44,6 +44,10 @@ set editor = "vim -f"
 # Message viewing
 alternative_order text/plain text/html
 auto_view text/html
+set sort = "threads"
+set strict_threads = "yes"
+bind index - collapse-thread
+bind index _ collapse-all
 
 # Vim keybindings
 # Generic
