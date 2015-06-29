@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Start i3 Window Manager
+exec i3
