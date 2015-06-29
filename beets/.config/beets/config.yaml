@@ -1,0 +1,14 @@
+directory: ~/music
+import:
+    move: yes
+plugins: fetchart embedart lastgenre lastimport missing info mpdstats mpdupdate web # smartplaylist
+lastfm:
+    user: parnmatt
+smartplaylist:
+    relative_to: ~/music
+    playlist_dir: ~/.config/mpd/playlists
+    playlists:
+        - name: all.m3u
+          query: ''
+        - name: alterbridge.m3u
+          query: 'artist:"Alter Bridge"'
