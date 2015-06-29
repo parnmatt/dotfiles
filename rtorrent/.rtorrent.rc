@@ -42,11 +42,11 @@ max_uploads = 609
 check_hash = yes
 
 # Directories for torrents
-directory = /home/parnmatt/Downloads
+directory = /home/parnmatt/downloads
 session = /home/parnmatt/.cache/rtorrent
 
 # Automati schedule
-schedule = watch_directory,5,5,load_start=/home/parnmatt/Downloads/*.torrent
+schedule = watch_directory,5,5,load_start=/home/parnmatt/downloads/*.torrent
 schedule = untied_directory,5,5,stop_untied=
 schedule = tied_directory,5,5,start_tied=
 schedule = low_diskspace,5,60,close_low_diskspace=100M
