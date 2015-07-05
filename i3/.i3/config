@@ -136,6 +136,21 @@ mode resize {
     bindsym Escape mode default
 }
 
+# control MPD
+bindsym $mod+m mode mpd
+mode mpd {
+    bindsym j exec mpc next
+    bindsym k exec mpc prev
+    bindsym p exec mpc toggle
+    bindsym s exec mpc shuffle
+    bindsym c exec mpc clear
+    bindsym a exec "mpc listall | mpc add"
+    bindsym XF86AudioLowerVolume exec mpc volume -10
+    bindsym XF86AudioRaiseVolume exec mpc volume +10
+
+    bindsym Escape mode default
+}
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
