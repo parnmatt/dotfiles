@@ -14,7 +14,7 @@ fi
 # Custom keys and themes
 setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
 [[ -x "$HOME/.Xmodmap" ]] && xmodmap "$HOME/.Xmodmap"
-[[ -x "$HOME/.Xresources" ]] && xrdb -merge "$HOME/.Xresources"
+[[ -x "$HOME/.Xresources" ]] && xrdb -override "$HOME/.Xresources"
 
 # Background image
 [[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg" &
@@ -34,4 +34,3 @@ numlockx &
 
 # Start Window Manager
 [[ -x "$HOME/.exec-wm" ]] && "$HOME/.exec-wm"
-
