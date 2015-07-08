@@ -139,12 +139,15 @@ mode resize {
 # control MPD
 bindsym $mod+m mode mpd
 mode mpd {
+    bindsym h exec mpc prev
     bindsym j exec mpc next
     bindsym k exec mpc prev
+    bindsym l exec mpc next
     bindsym p exec mpc toggle
     bindsym s exec mpc shuffle
     bindsym c exec mpc clear
     bindsym a exec "mpc listall | mpc add"
+    bindsym u exec mpc update
     bindsym XF86AudioLowerVolume exec mpc volume -10
     bindsym XF86AudioRaiseVolume exec mpc volume +10
 
