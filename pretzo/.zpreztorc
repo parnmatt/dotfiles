@@ -19,6 +19,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'git' \
+  'ssh' \
   'prompt'
 
 #
