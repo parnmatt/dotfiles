@@ -1,5 +1,8 @@
 " Configuration file for Pentadactyl
 " a Vim-like browser add-on for Firefox
 
+" Use gruvbox colours
+colorscheme gruvbox-dark
+
 " Enter 'Pass Through Mode' when using IPython Notebook
-autocmd LocationChange localhost:8888 :normal! <C-z>
+autocmd LocationChange 'localhost:8888' :normal! <C-z>
