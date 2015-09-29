@@ -5,7 +5,7 @@ match:
     preferred:
         countries: [GB|UK, XE, XW, US]
         media: [CD, Digital Media|File]
-plugins: fetchart embedart lastgenre lastimport missing info mpdstats mpdupdate web # smartplaylist
+plugins: duplicates fetchart embedart lastgenre lastimport missing info mpdstats mpdupdate web # smartplaylist
 lastfm:
     user: parnmatt
 smartplaylist:
