@@ -32,12 +32,37 @@ snippet i "Item"
 \item ${0:${VISUAL}}
 endsnippet
 
+snippet /fig(ure)?/ "Figure environment" br
+\begin{figure}[!htbp]
+    \begin{center}
+		\includegraphics${3:[${4:width}=${5:\linewidth}]}{${2:figures/$1}}$0
+        \caption{$6}
+        \label{fig:${7:`!p
+import os
+name, _ = os.path.splitext(os.path.basename(t[2]))
+snip.rv = name.replace('_', '.')
+`}}
+    \end{center}
+\end{figure}
+endsnippet
+
 snippet /\\?incg/ "Include Graphics" r
-\includegraphics${3:[${4:width}=${5:\textwidth}]}{${2:figures/$1}}$0
+\includegraphics${3:[${4:width}=${5:\linewidth}]}{${2:figures/$1}}$0
 endsnippet
 
 snippet /([-+]?\d*\.?\d*)\\?tw/ "Text width" r
 `!p snip.rv = match.group(1)`\textwidth
+endsnippet
+
+snippet /([-+]?\d*\.?\d*)\\?lw/ "Line width" r
+`!p snip.rv = match.group(1)`\linewidth
+endsnippet
+
+snippet /eq(uation)?/ "Equation eqnvironment" br
+\begin{equation${1:*}}
+    ${0:${VISUAL}}
+${3:	\label{eqn:$2}}
+\end{equation$1}
 endsnippet
 
 snippet part "Part" b
