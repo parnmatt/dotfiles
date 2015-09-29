@@ -28,6 +28,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'parnmatt/vim-root', {'branch': 'develop'}
 Plug 'jamessan/vim-gnupg'
+Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tejr/vim-tmux'
 Plug 'tommcdo/vim-exchange'
