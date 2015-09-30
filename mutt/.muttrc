@@ -18,6 +18,7 @@ set spoolfile = "=INBOX"
 set record    = "=Sent Items"
 set postponed = "=Drafts"
 mailboxes     = "=INBOX"
+set beep_new
 
 # No timeout
 unset imap_passive
