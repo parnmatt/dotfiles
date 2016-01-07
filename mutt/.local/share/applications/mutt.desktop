@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Office;Network;Email;ConsoleOnly
+Comment=Simple text-based Mail User Agent
+Exec=mutt %u
+Icon=mutt
+Name=Mutt
+GenericName=Mail Client
+MimeType=x-scheme-handler/mailto
+Terminal=true
+Type=Application
