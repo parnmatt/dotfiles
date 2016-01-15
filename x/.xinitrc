@@ -20,8 +20,7 @@ setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
 [[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg" &
 
 # Autolock screen after 10mins
-[[ -x "$HOME/.config/lock/lock" ]] && \
-    xautolock -time 10 -locker "$HOME/.config/lock/lock" &
+[[ -x "$HOME/.local/bin/lock" ]] && "$HOME/.local/bin/lock" 10 &
 
 # Sound
 start-pulseaudio-x11

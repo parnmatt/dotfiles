@@ -1,0 +1,5 @@
+#!/bin/sh
+xautolock -time $1 -locker "i3lock  --dpms \
+                                    --ignore-empty-password \
+                                    --image='$HOME/.config/lock/wallpaper' \
+                                    --color=000000" &
