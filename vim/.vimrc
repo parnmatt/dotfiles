@@ -73,9 +73,9 @@ set hidden
 set laststatus=2
 if has("gui_running")
 	if has("gui_gtk2")
-		set guifont=Inconsolata-g\ for\ Powerline\ 9
+		set guifont=Inconsolata-g\ for\ Powerline\ 10
 	else
-		set guifont=Inconsolata-g\ for\ Powerline:h9
+		set guifont=Inconsolata-g\ for\ Powerline:h10
 	endif
 endif
 let g:airline_powerline_fonts = 1

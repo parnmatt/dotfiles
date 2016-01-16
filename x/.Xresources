@@ -60,10 +60,10 @@ URxvt.urgentOnBell: true
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintfull
-URxvt.font: xft:Inconsolata\\-g for Powerline:bold:size=9,xft:Deja Vu Sans Mono:size=9
-URxvt.boldfont: xft:Inconsolata\\-g for Powerline:bold:size=9,xft:Deja Vu Sans Mono:bold:size=9
-URxvt.italicfont: xft:Inconsolata\\-g for Powerline:italic:size=9,xft:Deja Vu Sans Mono:italic:size=9
-URxvt.boldItalicfont: xft:Inconsolata\\-g for Powerline:bold:italic:size=9,xft:Deja Vu Sans Mono:bold:italic:size=9
+URxvt.font: xft:Inconsolata\\-g for Powerline:bold:size=10,xft:Deja Vu Sans Mono:size=10
+URxvt.boldfont: xft:Inconsolata\\-g for Powerline:bold:size=10,xft:Deja Vu Sans Mono:bold:size=10
+URxvt.italicfont: xft:Inconsolata\\-g for Powerline:italic:size=10,xft:Deja Vu Sans Mono:italic:size=10
+URxvt.boldItalicfont: xft:Inconsolata\\-g for Powerline:bold:italic:size=10,xft:Deja Vu Sans Mono:bold:italic:size=10
 
 ! extensions
 URxvt.perl-ext-common: default,url-select,font-size
