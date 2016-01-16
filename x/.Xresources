@@ -57,10 +57,13 @@ URxvt.shading: 20
 URxvt.urgentOnBell: true
 
 ! fonts
-URxvt.font: xft:Inconsolata-g for Powerline:size=9:antialias=true:hinting=true
-URxvt.boldfont: xft:Inconsolata-g for Powerline:bold:size=9:antialias=true:hinting=true
-URxvt.italicfont: xft:Inconsolata-g for Powerline:italic:size=9:antialias=true:hinting=true
-URxvt.boldItalicfont: xft:Inconsolata-g for Powerline:bold:italic:size=9:antialias=true:hinting=true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+URxvt.font: xft:Inconsolata\\-g for Powerline:bold:size=9,xft:Deja Vu Sans Mono:size=9
+URxvt.boldfont: xft:Inconsolata\\-g for Powerline:bold:size=9,xft:Deja Vu Sans Mono:bold:size=9
+URxvt.italicfont: xft:Inconsolata\\-g for Powerline:italic:size=9,xft:Deja Vu Sans Mono:italic:size=9
+URxvt.boldItalicfont: xft:Inconsolata\\-g for Powerline:bold:italic:size=9,xft:Deja Vu Sans Mono:bold:italic:size=9
 
 ! extensions
 URxvt.perl-ext-common: default,url-select,font-size

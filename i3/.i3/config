@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # font for window titles.
-font pango:"Inconsolata-g for Powerline" 9
+font pango:Inconsolata-g for Powerline 9
 
 # Base16 Tomorrow colours
 set $base00 #1d1f21
