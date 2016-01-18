@@ -124,12 +124,16 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+equal scratchpad show
 
 # backlight
-bindsym XF86MonBrightnessDown exec light -U 20
-bindsym XF86MonBrightnessUp exec light -A 20
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym Shift+XF86MonBrightnessDown exec light -U 25
+bindsym Shift+XF86MonBrightnessUp exec light -A 25
 
 # media
-bindsym XF86AudioLowerVolume exec amixer -q set Master 10%-
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+bindsym Shift+XF86AudioLowerVolume exec amixer -q set Master 10%-
+bindsym Shift+XF86AudioRaiseVolume exec amixer -q set Master 10%+
 
 # Print screen
 bindsym Print exec scrot
