@@ -41,6 +41,7 @@ set honor_followup_to = yes
 
 # Message options
 set editor = "vim -f"
+set display_filter="$HOME/.mutt/local_time.py"
 
 # Message viewing
 alternative_order text/plain text/html
