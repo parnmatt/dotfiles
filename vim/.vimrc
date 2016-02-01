@@ -18,34 +18,34 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins
+Plug 'rking/ag.vim'
+Plug 'godlygeek/csapprox'
+Plug 'kien/ctrlp.vim'
+Plug 'morhetz/gruvbox'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'bling/vim-airline'
-Plug 'chriskempson/base16-vim'
-Plug 'godlygeek/csapprox'
-Plug 'godlygeek/tabular'
-Plug 'kien/ctrlp.vim'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'parnmatt/vim-root', {'branch': 'develop'}
-Plug 'jamessan/vim-gnupg'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
-Plug 'tejr/vim-tmux'
-Plug 'tommcdo/vim-exchange'
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
+Plug 'bling/vim-airline'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
+Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-fugitive'
+Plug 'jamessan/vim-gnupg'
+Plug 'whatyouhide/vim-lengthmatters'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+Plug 'parnmatt/vim-root', {'branch': 'develop'}
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+Plug 'tejr/vim-tmux'
 Plug 'tpope/vim-unimpaired'
-Plug 'whatyouhide/vim-lengthmatters'
+Plug 'nelstrom/vim-visual-star-search'
 
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
@@ -140,7 +140,7 @@ endif
 
 " Colour scheme
 set background=dark
-silent! colorscheme base16-tomorrow
+silent! colorscheme gruvbox
 
 " Edit .vimrc
 noremap <leader>v :tabedit $MYVIMRC<CR>
