@@ -22,15 +22,14 @@ Plug 'rking/ag.vim'
 Plug 'godlygeek/csapprox'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
+Plug 'benekastah/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tommcdo/vim-exchange'
@@ -87,9 +86,6 @@ let g:ctrlp_arg_map = 1
 let g:UltiSnipsEditSplit = "horizontal"
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
-" Syntastic
-let g:syntastic_python_checkers = ['python', 'pep8']
-
 " Enable full backspace control
 set backspace=indent,eol,start
 
@@ -125,7 +121,10 @@ if has("autocmd")
 	autocmd!
 
 	" Source vimrc when saved
-	autocmd bufwritepost $MYVIMRC source $MYVIMRC
+	autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+    " Neomake on save
+    autocmd BufWritePost * Neomake
 
 	" Enable file type detection
 	filetype on
