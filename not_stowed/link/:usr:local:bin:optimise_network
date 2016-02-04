@@ -1,0 +1,145 @@
+#!/usr/bin/env python
+
+from collections import namedtuple
+import contextlib
+import inspect
+import itertools
+import subprocess
+import sys
+import os
+
+import Reflector
+import speedtest
+
+
+def _current_network():
+    """Returns string of current network via `netctl-auto`."""
+    with subprocess.Popen('netctl-auto current', shell=True,
+                          stdin=subprocess.PIPE,
+                          stdout=subprocess.PIPE,
+                          stderr=subprocess.PIPE) as proc:
+        network, error = proc.communicate()
+        if error:
+            raise PermissionError('Run as root')
+        network = network.decode().strip()
+    return network
+
+
+NETWORK = _current_network()
+
+NetworkSpeed = namedtuple('NetworkSpeed', ('download', 'upload'))
+
+
+def _network_speed():
+    """Calculate current download and upload speeds in kiB."""
+    tester = speedtest.Speedtest(units=('byte', 1))
+    tester.get_best_server()
+
+    download = tester.download() / 1024  # kiB
+    upload = tester.upload() / 1024  # kiB
+    return NetworkSpeed(download, upload)
+
+
+def _link(src, dest):
+    """Symbolic link `src` to `dest`."""
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    with contextlib.suppress(FileNotFoundError):
+        os.remove(dest)
+    os.symlink(src, dest)
+
+
+def _execute_all(self, prefix):
+    """Run all functions that start with `prefix`."""
+    for name, obj in inspect.getmembers(sys.modules[__name__]):
+        if inspect.isfunction(obj) and \
+                obj.__name__.startswith(prefix) and \
+                obj is not self:
+            obj()
+
+
+def optimise_all():
+    return _execute_all(optimise_all, 'optimise_')
+
+
+def link_all():
+    return _execute_all(link_all, 'link_')
+
+
+# rTorrent
+RTORRENT_PATH = '/etc/rtorrent'
+RTORRENT_FILE = os.path.join(RTORRENT_PATH, NETWORK + '.conf')
+
+
+def link_rtorrent():
+    print('Linking rTorrent configuration')
+    _link(RTORRENT_FILE, os.path.join(RTORRENT_PATH, 'network.conf'))
+
+
+def optimise_rtorrent():
+    """
+    Optimise rTorrent's settings.
+    Sets the global download and upload rates, and the maximum connected
+    peers, and the maxiumum simulaneous uploads.
+    Writes to /etc/rtorrent/NETWORK.conf
+    """
+    print('Optimising rTorrent')
+
+    speed = _network_speed()
+
+    settings = {
+            'download_rate': 0.95 * speed.download,
+            'upload_rate': 0.8 * speed.upload,
+            }
+    settings.update({
+        'max_peers': 1.3 * settings['upload_rate'],
+        'max_uploads': 1 + settings['upload_rate']/6,
+        })
+
+    # round down to integers
+    settings = {setting: int(value) for setting, value in settings.items()}
+
+    # create config file
+    os.makedirs(os.path.dirname(RTORRENT_FILE), exist_ok=True)
+    with open(RTORRENT_FILE, 'w') as file:
+        for setting, value in settings.items():
+            print(setting, '=', value, file=file)
+
+    link_rtorrent()
+
+
+# pacman
+PACMAN_PATH = '/etc/pacman.d'
+PACMAN_MIRRORLIST_FILE = os.path.join(PACMAN_PATH, 'mirrorlist.' + NETWORK)
+
+
+def link_pacman_mirrorlist():
+    print('Linking pacman mirrorlist')
+    _link(PACMAN_MIRRORLIST_FILE, os.path.join(PACMAN_PATH, 'mirrorlist'))
+
+
+def optimise_pacman_mirrorlist():
+    """
+    Optimises pacman using `reflector`.
+    Selects the 10 fastest servers from the 50 most up-to-date servers
+    using the HTTP protocal.
+    Writes to /etc/pacman.d/mirrorlist.NETWORK
+    """
+    print('Optimising pacman mirrorlist')
+
+    settings = {
+            'protocol': 'http',
+            'latest': 50,
+            'fastest': 10,
+            'save': PACMAN_MIRRORLIST_FILE,
+            }
+
+    reflector_args = tuple(itertools.chain.from_iterable(
+        ('--{}'.format(setting), '{}'.format(value))
+        for setting, value in settings.items()))
+    Reflector.main(reflector_args)
+
+    link_pacman_mirrorlist()
+
+
+if __name__ == '__main__':
+    optimise_all()
