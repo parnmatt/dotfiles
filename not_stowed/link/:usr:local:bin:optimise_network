@@ -2,6 +2,7 @@
 
 from collections import namedtuple
 import contextlib
+import datetime
 import inspect
 import itertools
 import subprocess
@@ -48,17 +49,28 @@ def _link(src, dest):
     os.symlink(src, dest)
 
 
-def _execute_all(self, prefix):
+def _execute_all(self, prefix, **kwargs):
     """Run all functions that start with `prefix`."""
     for name, obj in inspect.getmembers(sys.modules[__name__]):
         if inspect.isfunction(obj) and \
                 obj.__name__.startswith(prefix) and \
                 obj is not self:
-            obj()
+            obj(**kwargs)
 
 
-def optimise_all():
-    return _execute_all(optimise_all, 'optimise_')
+def _is_filename_older_than(filename, older_than=None):
+    """Checks if a file is older than a datetime.timedelta."""
+    if older_than is None:
+        return True
+
+    now = datetime.datetime.now()
+    mtime = os.path.getmtime(filename)
+    last_modified = datetime.datetime.fromtimestamp(mtime)
+    return now - last_modified > older_than
+
+
+def optimise_all(older_than=None):
+    return _execute_all(optimise_all, 'optimise_', older_than=older_than)
 
 
 def link_all():
@@ -75,13 +87,17 @@ def link_rtorrent():
     _link(RTORRENT_FILE, os.path.join(RTORRENT_PATH, 'network.conf'))
 
 
-def optimise_rtorrent():
+def optimise_rtorrent(older_than=None):
     """
-    Optimise rTorrent's settings.
-    Sets the global download and upload rates, and the maximum connected
-    peers, and the maxiumum simulaneous uploads.
-    Writes to /etc/rtorrent/NETWORK.conf
+    Optimise rTorrent's settings and writes to
+    /etc/rtorrent/NETWORK.conf. Sets the global download and upload
+    rates, and the maximum connected peers, and the maxiumum simulaneous
+    uploads; if the rTorrent file's modification time is older than the
+    given datetime.timedelta object, or None.
     """
+    if not _is_filename_older_than(PACMAN_MIRRORLIST_FILE, older_than):
+        return
+
     print('Optimising rTorrent')
 
     speed = _network_speed()
@@ -104,8 +120,6 @@ def optimise_rtorrent():
         for setting, value in settings.items():
             print(setting, '=', value, file=file)
 
-    link_rtorrent()
-
 
 # pacman
 PACMAN_PATH = '/etc/pacman.d'
@@ -117,13 +131,17 @@ def link_pacman_mirrorlist():
     _link(PACMAN_MIRRORLIST_FILE, os.path.join(PACMAN_PATH, 'mirrorlist'))
 
 
-def optimise_pacman_mirrorlist():
+def optimise_pacman_mirrorlist(older_than=None):
     """
-    Optimises pacman using `reflector`.
-    Selects the 10 fastest servers from the 50 most up-to-date servers
-    using the HTTP protocal.
-    Writes to /etc/pacman.d/mirrorlist.NETWORK
+    Optimises pacman mirrorlist using `reflector` and writes to
+    /etc/pacman.d/mirrorlist.NETWORK Selects the 10 fastest servers
+    from the 50 most up-to-date servers using the HTTP protocal;
+    if the mirrorlist's modification time is older than the given
+    datetime.timedelta object, or None.
     """
+    if not _is_filename_older_than(PACMAN_MIRRORLIST_FILE, older_than):
+        return
+
     print('Optimising pacman mirrorlist')
 
     settings = {
@@ -138,8 +156,7 @@ def optimise_pacman_mirrorlist():
         for setting, value in settings.items()))
     Reflector.main(reflector_args)
 
-    link_pacman_mirrorlist()
-
 
 if __name__ == '__main__':
-    optimise_all()
+    optimise_all(older_than=datetime.timedelta(weeks=1))
+    link_all()
