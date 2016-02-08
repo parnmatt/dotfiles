@@ -95,7 +95,8 @@ def optimise_rtorrent(older_than=None):
     uploads; if the rTorrent file's modification time is older than the
     given datetime.timedelta object, or None.
     """
-    if not _is_filename_older_than(PACMAN_MIRRORLIST_FILE, older_than):
+    if os.path.exists(RTORRENT_FILE) and \
+            not _is_filename_older_than(RTORRENT_FILE, older_than):
         return
 
     print('Optimising rTorrent')
@@ -139,7 +140,8 @@ def optimise_pacman_mirrorlist(older_than=None):
     if the mirrorlist's modification time is older than the given
     datetime.timedelta object, or None.
     """
-    if not _is_filename_older_than(PACMAN_MIRRORLIST_FILE, older_than):
+    if os.path.exists(PACMAN_MIRRORLIST_FILE) and \
+            not _is_filename_older_than(PACMAN_MIRRORLIST_FILE, older_than):
         return
 
     print('Optimising pacman mirrorlist')
