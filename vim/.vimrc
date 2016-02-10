@@ -130,11 +130,22 @@ if has("autocmd")
 	filetype on
 	syntax enable
 
-	" File Types
+    " Mail
+    autocmd filetype mail setlocal textwidth=72
+    autocmd filetype mail setlocal formatoptions+=aw
+    autocmd filetype mail setlocal formatprg=par\ w72qT4h
+    autocmd filetype mail setlocal spell
+
+    autocmd BufNewFile,BufRead *msmtprc* setlocal filetype=msmtp
+
+	" LaTeX
 	autocmd BufNewFile,BufRead *.tex set filetype=tex
 	autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
 	autocmd filetype tex setlocal iskeyword+=:,.,_
+
+    " Java
 	autocmd filetype java setlocal makeprg=javac\ %
+
 endif
 
 " Colour scheme
