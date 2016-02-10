@@ -3,22 +3,19 @@ set realname = "Matthew Parnell"
 set from     = "m.parnell@lancaster.ac.uk"
 set envelope_from
 
-# Account Details
-source "gpg2 -dq ~/.mutt_login.gpg |"
+# Receiving mail
+source "gpg2 -dq ~/.config/mutt/login.gpg |"
 set imap_user = $my_user
 set imap_pass = $my_pass
-set smtp_url  = "smtp://$imap_user@smtp.office365.com:587"
-set smtp_pass = $imap_pass
 set folder    = "imaps://outlook.office365.com:993"
 set ssl_force_tls
 set ssl_starttls
-
-# Mailboxes
-set spoolfile = "=INBOX"
-set record    = "=Sent Items"
-set postponed = "=Drafts"
-mailboxes     = "=INBOX"
 set beep_new
+
+set spoolfile = "=INBOX"
+set record = "=Sent Items"
+set postponed = "=Drafts"
+mailboxes = "=INBOX"
 
 # No timeout
 unset imap_passive
@@ -27,29 +24,37 @@ set imap_idle
 set timeout = 0
 set mail_check = 120
 
-# Cache
-set header_cache = ~/.cache/mutt
+set header_cache = ~/.cache/mutt/headers
+set message_cachedir = ~/.cache/mutt/bodies
+set mailcap_path = ~/.config/mutt/mailcap
+
+# Index
+set sort = threads
+set strict_threads = yes
+bind index - collapse-thread
+bind index _ collapse-all
+
+# Sending mail
+set smtp_url  = "smtp://$imap_user@smtp.office365.com:587"
+set smtp_pass = $imap_pass
+set signature = ~/.config/mutt/sig
 
 # Aliases
 alias me Matthew Parnell <m.parnell@lancaster.ac.uk>
-source "gpg2 -dq ~/.mutt_aliases.gpg |"
+source "gpg2 -dq ~/.config/mutt/aliases.gpg |"
 
 # Mailing Lists
-source "gpg2 -dq ~/.mutt_lists.gpg |"
+source "gpg2 -dq ~/.config/mutt/lists.gpg |"
 set followup_to
 set honor_followup_to = yes
 
 # Message options
 set editor = "vim -f"
-set display_filter="$HOME/.mutt/local_time.py"
+set display_filter = ~/.config/mutt/local_time.py
 
-# Message viewing
+# Pager
 alternative_order text/plain text/html
 auto_view text/html
-set sort = "threads"
-set strict_threads = "yes"
-bind index - collapse-thread
-bind index _ collapse-all
 
 # Vim keybindings
 # Generic
