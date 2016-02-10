@@ -1,0 +1,27 @@
+[general]
+ui = TTYUI
+accounts = Lancaster
+maxsyncaccounts = 1
+pythonfile = ~/.offlineimap.py
+
+[Account Lancaster]
+localrepository = Local
+remoterepository = Remote
+autorefresh = 5
+quick = 10
+status_backend = sqlite
+
+[Repository Local]
+type = Maildir
+localfolders = ~/.mail
+
+[Repository Remote]
+type = IMAP
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+keepalive = 60
+holdconnectionopen = yes
+remotehost = outlook.office365.com
+remoteport = 993
+remoteuser = parnellm@live.lancs.ac.uk
+remotepasseval = get_pass('lancs')
