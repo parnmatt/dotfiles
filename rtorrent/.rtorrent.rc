@@ -5,22 +5,22 @@ import = /etc/rtorrent/network.conf
 # -1 = same as downloading
 max_peers_seed = -1
 
-# Maximum number of simultanious uploads per torrent
-## 1 + (upload / 6)
-max_uploads = 38
+# protocals
+use_udp_trackers = yes
+dht = auto
 
-# Check for errors
+# check for errors
 check_hash = yes
 
-# Directories for torrents
+# directories for torrents
 directory = ~/downloads
 session = ~/.cache/rtorrent
 
-# Automati schedule
+# automatic schedule
 schedule = watch_directory,5,5,load_start=~/downloads/*.torrent
 schedule = untied_directory,5,5,stop_untied=
 schedule = tied_directory,5,5,start_tied=
 schedule = low_diskspace,5,60,close_low_diskspace=100M
 
-# Encrypt if available
+# encrypt if available
 encryption = allow_incoming,try_outgoing,enable_retry
