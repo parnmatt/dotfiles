@@ -30,34 +30,35 @@ bind index - collapse-thread
 bind index _ collapse-all
 
 macro index <F5> \
-    "<enter-command>set my_old_wait_key=\$wait_key nowait_key<enter>\
-    <shell-escape>pkill -USR1 offlineimap<enter>\
-    <enter-command>set wait_key=\$my_old_wait_key<enter>"
+    "<enter-command>set my_old_wait_key=\$wait_key nowait_key<return>\
+    <shell-escape>pkill -USR1 offlineimap<return>\
+    <enter-command>set wait_key=\$my_old_wait_key<return>" \
+        "Refresh offlineimap"
 
 macro index <F8> \
     "<enter-command>set my_old_pipe_decode=\$pipe_decode nopipe_decode\
-    my_old_wait_key=\$wait_key nowait_key<enter>\
-    <shell-escape>notmuch-mutt -r --prompt search<enter>\
-    <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+    my_old_wait_key=\$wait_key nowait_key<return>\
+    <shell-escape>notmuch-mutt -r --prompt search<return>\
+    <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<return>\
     <enter-command>set pipe_decode=\$my_old_pipe_decode\
-    wait_key=\$my_old_wait_key<enter>" \
+    wait_key=\$my_old_wait_key<return>" \
         "notmuch: search mail"
 
 macro index <F9> \
     "<enter-command>set my_old_pipe_decode=\$pipe_decode nopipe_decode\
-    my_old_wait_key=\$wait_key nowait_key<enter>\
-    <pipe-message>notmuch-mutt -r thread<enter>\
-    <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
+    my_old_wait_key=\$wait_key nowait_key<return>\
+    <pipe-message>notmuch-mutt -r thread<return>\
+    <change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<return>\
     <enter-command>set pipe_decode=\$my_old_pipe_decode\
-    wait_key=\$my_old_wait_key<enter>" \
+    wait_key=\$my_old_wait_key<return>" \
         "notmuch: reconstruct thread"
 
 macro index <F6> \
     "<enter-command>set my_old_pipe_decode=\$pipe_decode nopipe_decode\
-    my_old_wait_key=\$wait_key nowait_key<enter>\
-    <pipe-message>notmuch-mutt tag -- -inbox<enter>\
+    my_old_wait_key=\$wait_key nowait_key<return>\
+    <pipe-message>notmuch-mutt tag -- -inbox<return>\
     <enter-command>set pipe_decode=\$my_old_pipe_decode\
-    wait_key=\$my_old_wait_key<enter>" \
+    wait_key=\$my_old_wait_key<return>" \
         "notmuch: remove message from inbox"
 
 
