@@ -73,12 +73,14 @@ set sig_dashes
 set nosig_on_top
 set signature = ~/.config/mutt/sig
 
-# Aliases
-alias me Matthew Parnell <m.parnell@lancaster.ac.uk>
-source "gpg2 -dq ~/.config/mutt/aliases.gpg |"
+# address book
+set query_command="abook --mutt-query '%s'"
+macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add this sender to abook"
+bind editor <tab> complete-query
 
 # Mailing Lists
-source "gpg2 -dq ~/.config/mutt/lists.gpg |"
+source ~/.config/mutt/lists
 set followup_to
 set honor_followup_to
 

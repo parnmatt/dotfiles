@@ -1,0 +1,2 @@
+abook/.abook/addressbook filter=git-crypt diff=git-crypt
+mutt/.config/mutt/lists filter=git-crypt diff=git-crypt
