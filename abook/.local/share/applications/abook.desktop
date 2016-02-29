@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Office;ConsoleOnly
+Comment=Simple text-based address book program
+Exec=abook
+Icon=abook
+Name=abook
+GenericName=Address Book
+Terminal=true
+Type=Application
