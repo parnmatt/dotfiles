@@ -20,6 +20,8 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'git' \
   'ssh' \
+  'gpg' \
+  'rsync' \
   'prompt'
 
 #
