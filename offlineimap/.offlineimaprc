@@ -1,5 +1,5 @@
 [general]
-ui = TTYUI
+ui = ttyui
 accounts = Lancaster
 maxsyncaccounts = 1
 pythonfile = ~/.offlineimap.py
