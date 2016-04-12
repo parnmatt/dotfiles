@@ -13,15 +13,6 @@ import os
 import Reflector
 import speedtest
 
-parser = argparse.ArgumentParser(
-        description='Optimise network based things')
-group = parser.add_mutually_exclusive_group()
-group.add_argument('-f', '--force', action='store_true',
-                   help='forcibly optimise')
-group.add_argument('-l', '--link-only', action='store_true',
-                   help='link only, do not optimise')
-args = parser.parse_args()
-
 
 def _current_network():
     """Returns string of current network via `netctl-auto`."""
@@ -170,6 +161,15 @@ def optimise_pacman_mirrorlist(older_than=None):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+            description='Optimise network based things')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-f', '--force', action='store_true',
+                       help='forcibly optimise')
+    group.add_argument('-l', '--link-only', action='store_true',
+                       help='link only, do not optimise')
+    args = parser.parse_args()
+
     if args.force:
         optimise_all()
     elif not args.link_only:
