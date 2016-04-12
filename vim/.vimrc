@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 Plug 'rking/ag.vim'
 Plug 'godlygeek/csapprox'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'morhetz/gruvbox'
 Plug 'benekastah/neomake'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -39,12 +39,12 @@ Plug 'whatyouhide/vim-lengthmatters'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
-Plug 'parnmatt/vim-root', {'branch': 'develop'}
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tejr/vim-tmux'
 Plug 'tpope/vim-unimpaired'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'parnmatt/vim-root', {'branch': 'develop'}
 
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
