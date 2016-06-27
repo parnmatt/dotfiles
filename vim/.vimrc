@@ -91,7 +91,8 @@ nnoremap <leader>u :UltiSnipsEdit<CR>
 set backspace=indent,eol,start
 
 " English spelling, disabled by default
-set spell spelllang=en_gb
+set spellfile=$HOME/.vim/spell/physics.en.utf-8.add
+set spelllang=en_gb
 set nospell
 nnoremap <leader>s 1z=
 nnoremap <leader>[s [s1z=
