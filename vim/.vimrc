@@ -18,33 +18,34 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'rking/ag.vim'
-Plug 'godlygeek/csapprox'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'morhetz/gruvbox'
-Plug 'benekastah/neomake'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'AndrewRadev/switch.vim'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
+Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
+Plug 'godlygeek/csapprox'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jamessan/vim-gnupg'
+Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/vim-lengthmatters'
+Plug 'dzeban/vim-log-syntax'
 Plug 'tpope/vim-markdown'
+Plug 'benekastah/neomake'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+Plug 'parnmatt/vim-root', {'branch': 'develop'}
 Plug 'tpope/vim-speeddating'
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-surround'
+Plug 'AndrewRadev/switch.vim'
+Plug 'godlygeek/tabular'
 Plug 'tejr/vim-tmux'
 Plug 'tpope/vim-unimpaired'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'parnmatt/vim-root', {'branch': 'develop'}
 
 if has('python') || has('python3')
     Plug 'SirVer/ultisnips'
