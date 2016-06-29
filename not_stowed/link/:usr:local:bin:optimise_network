@@ -6,6 +6,7 @@ import contextlib
 import datetime
 import inspect
 import itertools
+import re
 import subprocess
 import sys
 import os
@@ -16,15 +17,18 @@ import speedtest
 
 def _current_network():
     """Returns string of current network via `netctl-auto`."""
-    with subprocess.Popen('netctl-auto current', shell=True,
+    with subprocess.Popen('netctl-auto list', shell=True,
                           stdin=subprocess.PIPE,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE) as proc:
-        network, error = proc.communicate()
+        networks, error = proc.communicate()
         if error:
             raise PermissionError('Run as root')
-        network = network.decode().strip()
-    return network
+        networks = re.split(r'\n\s*', networks.decode().strip())
+        networks = (network.strip('* ')
+                    for network in networks
+                    if network.startswith('*'))
+    return next(networks)
 
 
 NETWORK = _current_network()
