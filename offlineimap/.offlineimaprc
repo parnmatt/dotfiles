@@ -26,3 +26,15 @@ remotehost = outlook.office365.com
 remoteport = 993
 remoteuser = parnellm@live.lancs.ac.uk
 remotepasseval = get_pass('lancs')
+
+folderfilter = lambda foldername: foldername not in (
+        'Calendar',
+        'Contacts',
+        'Contacts/T2K Lancs',
+        'Clutter',
+        'Deleted Items',
+        'Journal',
+        'Notes',
+        'Outbox',
+        'Tasks',
+        )
