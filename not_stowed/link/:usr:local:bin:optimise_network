@@ -4,11 +4,10 @@ import argparse
 from collections import namedtuple
 import contextlib
 import datetime
-import inspect
+import glob
 import itertools
 import re
 import subprocess
-import sys
 import os
 
 import Reflector
@@ -54,15 +53,6 @@ def _link(src, dest):
     os.symlink(src, dest)
 
 
-def _execute_all(self, prefix, **kwargs):
-    """Run all functions that start with `prefix`."""
-    for name, obj in inspect.getmembers(sys.modules[__name__]):
-        if inspect.isfunction(obj) and \
-                obj.__name__.startswith(prefix) and \
-                obj is not self:
-            obj(**kwargs)
-
-
 def _is_filename_older_than(filename, older_than=None):
     """Checks if a file is older than a datetime.timedelta."""
     if older_than is None:
@@ -74,94 +64,93 @@ def _is_filename_older_than(filename, older_than=None):
     return now - last_modified > older_than
 
 
-def optimise_all(older_than=None):
-    return _execute_all(optimise_all, 'optimise_', older_than=older_than)
+class Service():
+    def _filename(self, network_name, expression=True):
+        basename = network_name
+        if expression:
+            basename = self.conf_expression.format(network_name)
+        return os.path.join(self.path, basename)
+
+    def __init__(self, path, conf_expression, conf_name):
+        self.path = path
+        self.conf_expression = conf_expression
+        self.service_file = self._filename(conf_name, expression=False)
+
+    def link(self):
+        """Symbolic link service configuration for current network"""
+        print('Linking {} configuration'.format(self.__class__.__name__))
+        _link(self._filename(NETWORK), self.service_file)
+
+    def optimise(self, older_than=None):
+        """
+        Optmise the service if the rTorrent file's modification time is
+        older than the given datetime.timedelta object, or None.
+        """
+
+        if os.path.exists(self.service_file) and \
+                not _is_filename_older_than(self.service_file, older_than):
+            return
+
+        print('Optimising {}'.format(self.__class__.__name__))
+        self._optimise()
+
+    def _optimise(self):
+        raise NotImplementedError('_optimise() needs to be implemented for each inherited service')
 
 
-def link_all():
-    return _execute_all(link_all, 'link_')
+class rTorrent(Service):
+    def __init__(self):
+        super().__init__('/etc/rtorrent', '{}.conf', 'network.conf')
+
+    def _optimise(self):
+        """
+        Optimise rTorrent's settings and writes to
+        /etc/rtorrent/NETWORK.conf. Sets the global download and upload
+        rates, and the maximum connected peers, and the maxiumum simulaneous
+        uploads.
+        """
+        speed = _network_speed()
+
+        settings = {
+                'download_rate': 0.95 * speed.download,
+                'upload_rate': 0.8 * speed.upload,
+                }
+        settings.update({
+            'max_peers': 1.3 * settings['upload_rate'],
+            'max_uploads': 1 + settings['upload_rate']/6,
+            })
+
+        # round down to integers
+        settings = {setting: int(value) for setting, value in settings.items()}
+
+        # create config file
+        os.makedirs(os.path.dirname(self.service_file), exist_ok=True)
+        with open(self.service_file, 'w') as file:
+            for setting, value in settings.items():
+                print(setting, '=', value, file=file)
 
 
-# rTorrent
-RTORRENT_PATH = '/etc/rtorrent'
-RTORRENT_FILE = os.path.join(RTORRENT_PATH, NETWORK + '.conf')
+class Pacman(Service):
+    def __init__(self):
+        super().__init__('/etc/pacman.d', 'mirrorlist.{}', 'mirrorlist')
 
+    def _optimise(self):
+        """
+        Optimises pacman mirrorlist using `reflector` and writes to
+        /etc/pacman.d/mirrorlist.NETWORK Selects the 10 fastest servers
+        from the 50 most up-to-date servers using the HTTP protocal.
+        """
+        settings = {
+                'protocol': 'http',
+                'latest': 50,
+                'fastest': 10,
+                'save': self.service_file,
+                }
 
-def link_rtorrent():
-    print('Linking rTorrent configuration')
-    _link(RTORRENT_FILE, os.path.join(RTORRENT_PATH, 'network.conf'))
-
-
-def optimise_rtorrent(older_than=None):
-    """
-    Optimise rTorrent's settings and writes to
-    /etc/rtorrent/NETWORK.conf. Sets the global download and upload
-    rates, and the maximum connected peers, and the maxiumum simulaneous
-    uploads; if the rTorrent file's modification time is older than the
-    given datetime.timedelta object, or None.
-    """
-    if os.path.exists(RTORRENT_FILE) and \
-            not _is_filename_older_than(RTORRENT_FILE, older_than):
-        return
-
-    print('Optimising rTorrent')
-
-    speed = _network_speed()
-
-    settings = {
-            'download_rate': 0.95 * speed.download,
-            'upload_rate': 0.8 * speed.upload,
-            }
-    settings.update({
-        'max_peers': 1.3 * settings['upload_rate'],
-        'max_uploads': 1 + settings['upload_rate']/6,
-        })
-
-    # round down to integers
-    settings = {setting: int(value) for setting, value in settings.items()}
-
-    # create config file
-    os.makedirs(os.path.dirname(RTORRENT_FILE), exist_ok=True)
-    with open(RTORRENT_FILE, 'w') as file:
-        for setting, value in settings.items():
-            print(setting, '=', value, file=file)
-
-
-# pacman
-PACMAN_PATH = '/etc/pacman.d'
-PACMAN_MIRRORLIST_FILE = os.path.join(PACMAN_PATH, 'mirrorlist.' + NETWORK)
-
-
-def link_pacman_mirrorlist():
-    print('Linking pacman mirrorlist')
-    _link(PACMAN_MIRRORLIST_FILE, os.path.join(PACMAN_PATH, 'mirrorlist'))
-
-
-def optimise_pacman_mirrorlist(older_than=None):
-    """
-    Optimises pacman mirrorlist using `reflector` and writes to
-    /etc/pacman.d/mirrorlist.NETWORK Selects the 10 fastest servers
-    from the 50 most up-to-date servers using the HTTP protocal;
-    if the mirrorlist's modification time is older than the given
-    datetime.timedelta object, or None.
-    """
-    if os.path.exists(PACMAN_MIRRORLIST_FILE) and \
-            not _is_filename_older_than(PACMAN_MIRRORLIST_FILE, older_than):
-        return
-
-    print('Optimising pacman mirrorlist')
-
-    settings = {
-            'protocol': 'http',
-            'latest': 50,
-            'fastest': 10,
-            'save': PACMAN_MIRRORLIST_FILE,
-            }
-
-    reflector_args = tuple(itertools.chain.from_iterable(
-        ('--{}'.format(setting), '{}'.format(value))
-        for setting, value in settings.items()))
-    Reflector.main(reflector_args)
+        reflector_args = tuple(itertools.chain.from_iterable(
+            ('--{}'.format(setting), '{}'.format(value))
+            for setting, value in settings.items()))
+        Reflector.main(reflector_args)
 
 
 if __name__ == '__main__':
@@ -174,9 +163,14 @@ if __name__ == '__main__':
                        help='link only, do not optimise')
     args = parser.parse_args()
 
-    if args.force:
-        optimise_all()
-    elif not args.link_only:
-        optimise_all(older_than=datetime.timedelta(weeks=1))
+    services = Pacman(), rTorrent()
 
-    link_all()
+    if args.force:
+        for service in services:
+            service.optimise()
+    elif not args.link_only:
+        for service in services:
+            service.optimise(older_than=datetime.timedelta(weeks=1))
+
+    for service in services:
+        service.link()
