@@ -24,6 +24,7 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/csapprox'
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tommcdo/vim-exchange'
@@ -42,8 +43,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
-Plug 'godlygeek/tabular'
-Plug 'tejr/vim-tmux'
 Plug 'tpope/vim-unimpaired'
 Plug 'nelstrom/vim-visual-star-search'
 
@@ -80,12 +79,13 @@ if has("gui_running")
 endif
 let g:airline_powerline_fonts = 1
 
-" CtrlP
-let g:ctrlp_arg_map = 1
-
 " UltiSnips
 let g:UltiSnipsEditSplit = "horizontal"
 nnoremap <leader>u :UltiSnipsEdit<CR>
+
+" EasyAlign
+xnoremap ga <Plug>(EasyAlign)
+nnoremap ga <Plug>(EasyAlign)
 
 " Enable full backspace control
 set backspace=indent,eol,start
