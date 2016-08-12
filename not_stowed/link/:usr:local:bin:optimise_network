@@ -84,9 +84,10 @@ class Config():
             os.remove(self._filename(network_name))
 
     def _filename(self, network_name, expression=True):
-        basename = network_name
         if expression:
             basename = self.conf_expression.format(network_name)
+        else:
+            basename = network_name
         return os.path.join(self.path, basename)
 
 
@@ -190,7 +191,7 @@ def networks_with_services(services):
         configs = frozenset(service.ls())
         for network in networks:
             config = service._filename(network)
-            networks_with_services_[network][service.name] =  config in configs
+            networks_with_services_[network][service.name] = config in configs
 
     df = pd.DataFrame.from_dict(networks_with_services_, orient='index')
     df.index.name = 'Networks'
@@ -204,18 +205,18 @@ def clean_up(services):
     df_remove = df[auto_remove]
     to_remove = set(df_remove.index)
 
-    indices = []
-    for num, index in enumerate(df.index, start=1):
-        prefix = ''
-        if index == NETWORK:
-            prefix += '='
-        if index in to_remove:
-            prefix += '*'
+    def indices():
+        for num, index in enumerate(df.index, start=1):
+            prefix = ''
+            if index == NETWORK:
+                prefix += '='
+            if index in to_remove:
+                prefix += '*'
+            yield prefix, num, index
 
-        multi_index = prefix, num, index
-        indices.append(multi_index)
-    df.set_index([indices], inplace=True)
-    df.index.names = '', '', 'Networks'
+    index_name = df.index.name
+    df.set_index([list(indices())], inplace=True)
+    df.index.names = '', '', index_name
 
     print(df, end='\n\n')
     print('= is current network.')
