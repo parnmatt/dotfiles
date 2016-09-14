@@ -84,8 +84,8 @@ let g:UltiSnipsEditSplit = "horizontal"
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " EasyAlign
-xnoremap ga <Plug>(EasyAlign)
-nnoremap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Enable full backspace control
 set backspace=indent,eol,start
@@ -144,6 +144,9 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.tex set filetype=tex
 	autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
 	autocmd filetype tex setlocal iskeyword+=:,.,_
+
+    " Markdown
+    autocmd filetype markdown setlocal makeprg=cmark\ --smart\ --nobreaks\ %>%:r.html
 
     " Java
 	autocmd filetype java setlocal makeprg=javac\ %
