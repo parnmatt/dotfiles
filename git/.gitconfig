@@ -1,8 +1,6 @@
 [user]
 	name = Matthew Parnell
 	email = matt@parnmatt.co.uk
-[core]
-	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [include]

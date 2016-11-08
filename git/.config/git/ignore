@@ -31,6 +31,12 @@
 .*.sw?
 *~
 
+# Tag files #
+#############
+tags
+TAGS
+.tags
+
 # OS generated files #
 ######################
 .DS_Store
