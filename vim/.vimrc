@@ -19,7 +19,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins
 Plug 'tpope/vim-abolish'
-Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
@@ -29,7 +28,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jamessan/vim-gnupg'
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/vim-lengthmatters'
@@ -68,8 +66,32 @@ set splitbelow
 set splitright
 set hidden
 
+" file finding
+set path+=**
+set wildmenu
+
+" searching
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
+" tags
+set tags+=,./.tags,.tags
+
+" turn off hlsearch
+nnoremap <leader><space> :nohlsearch<CR>
+
+" file browsing
+let g:netrw_banner = 0
+let g:netrw_altv = 1
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = netrw_gitignore#Hide()
+
 " airline
 set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 if has("gui_running")
 	if has("gui_gtk2")
 		set guifont=Inconsolata-g\ for\ Powerline\ 10
@@ -77,7 +99,6 @@ if has("gui_running")
 		set guifont=Inconsolata-g\ for\ Powerline:h10
 	endif
 endif
-let g:airline_powerline_fonts = 1
 
 " UltiSnips
 let g:UltiSnipsEditSplit = "horizontal"
@@ -108,14 +129,26 @@ inoremap jk <Esc>
 nnoremap <leader>; A;<Esc>
 inoremap <leader>; <C-o>A;<Esc>
 
-" Turn off hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
-
 " Prevent using arrow keys in insert mode
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
+
+" Neomake
+let g:neomake_cpp_cppcheck_maker = {
+    \ 'args': ['-q', '--enable=style', '%:p'],
+    \ 'errorformat':
+        \ '[%f:%l]: (%trror) %m,' .
+        \ '[%f:%l]: (%tarning) %m,' .
+        \ '[%f:%l]: (%ttyle) %m,' .
+        \ '[%f:%l]: (%terformance) %m,' .
+        \ '[%f:%l]: (%tortability) %m,' .
+        \ '[%f:%l]: (%tnformation) %m,' .
+        \ '[%f:%l]: (%tnconclusive) %m,' .
+        \ '%-G%.%#',
+        \ }
+let g:neomake_cpp_enabled_makers = ['gcc', 'cppcheck']
 
 " autocommand support portability
 " TODO consider encapsulating these
@@ -163,12 +196,16 @@ noremap <leader>v :tabedit $MYVIMRC<CR>
 " Yank rest of line to follow the common convention
 nnoremap Y y$
 
-
-" Commands
-:command! WQ wq
-:command! Wq wq
-:command! W  w
-:command! Q  q
+" Remove accidental shift on common commands
+cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
+cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev WA wa
+cnoreabbrev X x
+cnoreabbrev Xa xa
+cnoreabbrev XA xa
 
 " Use par for formatting
 set formatprg=par
