@@ -1,51 +1,61 @@
 autocmd!
 
-" vim-plug installation helper
-function! InstallPlug()
-    echom 'Installing vim-plug'
-    silent! call mkdir($XDG_CONFIG_HOME . '/nvim/autoload', 'p')
-    silent! execute '!curl -fLo ' . $XDG_CONFIG_HOME . '/nvim/autoload/plug.vim '
-                \ . 'https://raw.githubusercontent.com/'
-                \ . 'junegunn/vim-plug/master/plug.vim'
+" dein plugin manager
+function! InstallPluginManager()
+    echom 'Installing dein...'
+    silent! call mkdir($XDG_CONFIG_HOME . '/nvim/dein', 'p')
+    silent! execute '!curl --fail --location --output /tmp/dein.sh '
+             \ . 'https://raw.githubusercontent.com/'
+             \ . 'Shougo/dein.vim/master/bin/installer.sh'
+    silent! execute '!sh /tmp/dein.sh ' . $XDG_CONFIG_HOME . '/nvim/dein'
 endfunction
 
-if !filereadable($XDG_CONFIG_HOME . '/nvim/autoload/plug.vim')
-    call InstallPlug()
+if !filereadable($XDG_CONFIG_HOME . '/nvim/dein/'
+            \ . 'repos/github.com/Shougo/dein.vim/autoload/dein.vim')
+    call InstallPluginManager()
 endif
 
-" Initialise vim-plug (plugin package manager)
-call plug#begin($XDG_CONFIG_HOME . '/nvim/plugged')
+set runtimepath+=$XDG_CONFIG_HOME/nvim/dein/repos/github.com/Shougo/dein.vim
+call dein#begin($XDG_CONFIG_HOME . '/nvim/dein')
+call dein#add('Shougo/dein.vim')
 
-Plug 'tpope/vim-abolish'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-capslock'
-Plug 'tpope/vim-commentary'
-Plug 'godlygeek/csapprox'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-fugitive'
-Plug 'jamessan/vim-gnupg'
-Plug 'morhetz/gruvbox'
-Plug 'whatyouhide/vim-lengthmatters'
-Plug 'dzeban/vim-log-syntax'
-Plug 'tpope/vim-markdown'
-Plug 'benekastah/neomake'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-repeat'
-Plug 'parnmatt/vim-root', {'branch': 'develop'}
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-speeddating'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'tpope/vim-surround'
-Plug 'AndrewRadev/switch.vim'
-Plug 'SirVer/ultisnips'
-Plug 'tpope/vim-unimpaired'
-Plug 'nelstrom/vim-visual-star-search'
+call dein#add('tpope/vim-abolish')
+call dein#add('bling/vim-airline')
+call dein#add('tpope/vim-capslock')
+call dein#add('tpope/vim-commentary')
+call dein#add('godlygeek/csapprox')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('junegunn/vim-easy-align')
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-eunuch')
+call dein#add('tommcdo/vim-exchange')
+call dein#add('tpope/vim-fugitive')
+call dein#add('jamessan/vim-gnupg')
+call dein#add('morhetz/gruvbox')
+call dein#add('whatyouhide/vim-lengthmatters')
+call dein#add('dzeban/vim-log-syntax')
+call dein#add('tpope/vim-markdown')
+call dein#add('benekastah/neomake')
+call dein#add('tpope/vim-obsession')
+call dein#add('tpope/vim-repeat')
+call dein#add('parnmatt/vim-root', {'rev': 'develop'})
+call dein#add('honza/vim-snippets')
+call dein#add('tpope/vim-speeddating')
+call dein#add('AndrewRadev/splitjoin.vim')
+call dein#add('tpope/vim-surround')
+call dein#add('AndrewRadev/switch.vim')
+call dein#add('SirVer/ultisnips')
+call dein#add('tpope/vim-unimpaired')
+call dein#add('nelstrom/vim-visual-star-search')
 
-call plug#end()
+call dein#end()
+
+if dein#check_install()
+    call dein#install()
+endif
+
+filetype plugin indent on
+syntax enable
 
 set tabstop=4
 set softtabstop=4
@@ -116,7 +126,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
+call deoplete#enable()
 
 " UltiSnips
 let g:UltiSnipsEditSplit = "horizontal"
@@ -152,6 +162,9 @@ let g:neomake_cpp_cppcheck_maker = {
         \ }
 let g:neomake_cpp_enabled_makers = ['gcc', 'cppcheck']
 
+" Close preview window
+autocmd CompleteDone * pclose
+
 " Source vimrc when saved
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -181,8 +194,8 @@ autocmd filetype markdown setlocal makeprg=cmark\ --smart\ --nobreaks\ %>%:r.htm
 autocmd filetype java setlocal makeprg=javac\ %
 
 " Set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* Stab call Stab()
-function! Stab()
+command! -nargs=* SetTab call SetTab()
+function! SetTab()
 	let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
 	if l:tabstop > 0
 		let &l:sts = l:tabstop
