@@ -4,18 +4,18 @@ filetype off
 " vim-plug installation helper
 function! InstallPlug()
     echom 'Installing vim-plug'
-    silent! call mkdir($HOME . '/.vim/autoload', 'p')
-    silent! execute '!curl -fLo ' . $HOME . '/.vim/autoload/plug.vim '
+    silent! call mkdir($XDG_CONFIG_HOME . '/nvim/autoload', 'p')
+    silent! execute '!curl -fLo ' . $XDG_CONFIG_HOME . '/nvim/autoload/plug.vim '
                 \ . 'https://raw.githubusercontent.com/'
                 \ . 'junegunn/vim-plug/master/plug.vim'
 endfunction
 
-if !filereadable($HOME . '/.vim/autoload/plug.vim')
+if !filereadable($XDG_CONFIG_HOME . '/nvim/autoload/plug.vim')
     call InstallPlug()
 endif
 
 " Initialise vim-plug (plugin package manager)
-call plug#begin('~/.vim/plugged')
+call plug#begin($XDG_CONFIG_HOME . '/nvim/plugged')
 
 " Plugins
 Plug 'tpope/vim-abolish'
