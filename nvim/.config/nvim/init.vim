@@ -45,10 +45,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'SirVer/ultisnips'
 call plug#end()
 
-" Colour scheme
-set background=dark
-silent! colorscheme gruvbox
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -72,8 +68,39 @@ set grepformat=%f:%l:%c:%m
 " tags
 set tags+=,./.tags,.tags
 
+" Edit .vimrc
+noremap <leader>v :tabedit $MYVIMRC<CR>
+
+" Prevent using arrow keys in insert mode
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+
+" map jk to Esc
+inoremap jk <Esc>
+
+" Yank rest of line to follow the common convention
+nnoremap Y y$
+
+" Remove accidental shift on common commands
+cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
+cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev WA wa
+cnoreabbrev X x
+cnoreabbrev Xa xa
+cnoreabbrev XA xa
+
 " turn off hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
+
+ 
+" Colour scheme
+set background=dark
+silent! colorscheme gruvbox
 
 " file browsing
 let g:netrw_banner = 0
@@ -102,19 +129,8 @@ nnoremap <leader>s 1z=
 nnoremap <leader>[s [s1z=
 nnoremap <leader>]s ]s1z=e
 
-
-" map jk to Esc
-inoremap jk <Esc>
-
-" Semicolon at end of line
-nnoremap <leader>; A;<Esc>
-inoremap <leader>; <C-o>A;<Esc>
-
-" Prevent using arrow keys in insert mode
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
+" Use par for formatting
+set formatprg=par
 
 " Neomake
 let g:neomake_cpp_cppcheck_maker = {
@@ -158,26 +174,6 @@ autocmd filetype markdown setlocal makeprg=cmark\ --smart\ --nobreaks\ %>%:r.htm
 
 " Java
 autocmd filetype java setlocal makeprg=javac\ %
-
-" Edit .vimrc
-noremap <leader>v :tabedit $MYVIMRC<CR>
-
-" Yank rest of line to follow the common convention
-nnoremap Y y$
-
-" Remove accidental shift on common commands
-cnoreabbrev Q q
-cnoreabbrev Qa qa
-cnoreabbrev QA qa
-cnoreabbrev W w
-cnoreabbrev Wa wa
-cnoreabbrev WA wa
-cnoreabbrev X x
-cnoreabbrev Xa xa
-cnoreabbrev XA xa
-
-" Use par for formatting
-set formatprg=par
 
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stab call Stab()
