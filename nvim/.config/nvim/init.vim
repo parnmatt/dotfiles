@@ -16,12 +16,12 @@ endif
 " Initialise vim-plug (plugin package manager)
 call plug#begin($XDG_CONFIG_HOME . '/nvim/plugged')
 
-" Plugins
 Plug 'tpope/vim-abolish'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/csapprox'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
@@ -36,13 +36,15 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'parnmatt/vim-root', {'branch': 'develop'}
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-speeddating'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
+Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'SirVer/ultisnips'
+
 call plug#end()
 
 set tabstop=4
@@ -112,6 +114,9 @@ let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
 " UltiSnips
 let g:UltiSnipsEditSplit = "horizontal"
