@@ -1,5 +1,4 @@
-set nocompatible
-filetype off
+autocmd!
 
 " vim-plug installation helper
 function! InstallPlug()
@@ -43,32 +42,28 @@ Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'nelstrom/vim-visual-star-search'
-
-if has('python') || has('python3')
-    Plug 'SirVer/ultisnips'
-endif
-
+Plug 'SirVer/ultisnips'
 call plug#end()
 
-filetype plugin indent on
+" Colour scheme
+set background=dark
+silent! colorscheme gruvbox
 
-set autoindent
-set autoread
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set listchars="tab:▸ ,trail:·,eol:¬,nbsp:●"
 set number
+set relativenumber
 set wrap
 set linebreak
-set hlsearch
 set splitbelow
 set splitright
 set hidden
 
 " file finding
 set path+=**
-set wildmenu
 
 " searching
 set grepprg=ag\ --vimgrep\ $*
@@ -87,18 +82,9 @@ let g:netrw_liststyle = 3
 let g:netrw_list_hide = netrw_gitignore#Hide()
 
 " airline
-set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
-if has("gui_running")
-	if has("gui_gtk2")
-		set guifont=Inconsolata-g\ for\ Powerline\ 10
-	else
-		set guifont=Inconsolata-g\ for\ Powerline:h10
-	endif
-endif
 
 " UltiSnips
 let g:UltiSnipsEditSplit = "horizontal"
@@ -108,19 +94,14 @@ nnoremap <leader>u :UltiSnipsEdit<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" Enable full backspace control
-set backspace=indent,eol,start
-
 " English spelling, disabled by default
-set spellfile=$HOME/.vim/spell/physics.en.utf-8.add
+set spellfile=$XDG_CONFIG_HOME/nvim/spell/physics.en.utf-8.add
 set spelllang=en_gb
 set nospell
 nnoremap <leader>s 1z=
 nnoremap <leader>[s [s1z=
 nnoremap <leader>]s ]s1z=e
 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,trail:·
 
 " map jk to Esc
 inoremap jk <Esc>
@@ -150,48 +131,33 @@ let g:neomake_cpp_cppcheck_maker = {
         \ }
 let g:neomake_cpp_enabled_makers = ['gcc', 'cppcheck']
 
-" autocommand support portability
-" TODO consider encapsulating these
-if has("autocmd")
-	autocmd!
+" Source vimrc when saved
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-	" Source vimrc when saved
-	autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" Neomake on save
+autocmd BufWritePost * Neomake
 
-    " Neomake on save
-    autocmd BufWritePost * Neomake
+" Mail
+autocmd filetype mail setlocal textwidth=72
+autocmd filetype mail setlocal formatoptions+=aw
+autocmd filetype mail setlocal formatprg=par\ w72qT4h
+autocmd filetype mail setlocal spell
 
-	" Enable file type detection
-	filetype on
-	syntax enable
+autocmd BufNewFile,BufRead *msmtprc* setlocal filetype=msmtp
 
-    " Mail
-    autocmd filetype mail setlocal textwidth=72
-    autocmd filetype mail setlocal formatoptions+=aw
-    autocmd filetype mail setlocal formatprg=par\ w72qT4h
-    autocmd filetype mail setlocal spell
+" C/C++
+autocmd filetype c,cpp setlocal commentstring=//\ %s
 
-    autocmd BufNewFile,BufRead *msmtprc* setlocal filetype=msmtp
+" LaTeX
+autocmd BufNewFile,BufRead *.tex setlocal filetype=tex
+autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
+autocmd filetype tex setlocal iskeyword+=:,.,_
 
-    " C/C++
-    autocmd filetype c,cpp setlocal commentstring=//\ %s
+" Markdown
+autocmd filetype markdown setlocal makeprg=cmark\ --smart\ --nobreaks\ %>%:r.html
 
-	" LaTeX
-	autocmd BufNewFile,BufRead *.tex setlocal filetype=tex
-	autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
-	autocmd filetype tex setlocal iskeyword+=:,.,_
-
-    " Markdown
-    autocmd filetype markdown setlocal makeprg=cmark\ --smart\ --nobreaks\ %>%:r.html
-
-    " Java
-	autocmd filetype java setlocal makeprg=javac\ %
-
-endif
-
-" Colour scheme
-set background=dark
-silent! colorscheme gruvbox
+" Java
+autocmd filetype java setlocal makeprg=javac\ %
 
 " Edit .vimrc
 noremap <leader>v :tabedit $MYVIMRC<CR>
