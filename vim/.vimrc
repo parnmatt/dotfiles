@@ -173,8 +173,11 @@ if has("autocmd")
 
     autocmd BufNewFile,BufRead *msmtprc* setlocal filetype=msmtp
 
+    " C/C++
+    autocmd filetype c,cpp setlocal commentstring=//\ %s
+
 	" LaTeX
-	autocmd BufNewFile,BufRead *.tex set filetype=tex
+	autocmd BufNewFile,BufRead *.tex setlocal filetype=tex
 	autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
 	autocmd filetype tex setlocal iskeyword+=:,.,_
 
