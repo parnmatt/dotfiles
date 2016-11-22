@@ -85,7 +85,7 @@ set followup_to
 set honor_followup_to
 
 # Message options
-set editor = "vim -f"
+set editor = "nvim -f"
 set display_filter = ~/.config/mutt/local_time.py
 
 # Pager
