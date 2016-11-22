@@ -19,32 +19,60 @@ set runtimepath+=$XDG_CONFIG_HOME/nvim/dein/repos/github.com/Shougo/dein.vim
 call dein#begin($XDG_CONFIG_HOME . '/nvim/dein')
 call dein#add('Shougo/dein.vim')
 
-call dein#add('tpope/vim-abolish')
-call dein#add('bling/vim-airline')
-call dein#add('tpope/vim-capslock')
-call dein#add('tpope/vim-commentary')
-call dein#add('godlygeek/csapprox')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('junegunn/vim-easy-align')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-eunuch')
-call dein#add('tommcdo/vim-exchange')
+" git helpers
 call dein#add('tpope/vim-fugitive')
-call dein#add('jamessan/vim-gnupg')
+call dein#add('tpope/vim-rhubarb')
+call dein#add('airblade/vim-gitgutter')
+
+" user interface and colours
+call dein#add('bling/vim-airline')
+call dein#add('godlygeek/csapprox')
 call dein#add('morhetz/gruvbox')
-call dein#add('whatyouhide/vim-lengthmatters')
+call dein#add('Shougo/echodoc')
+call dein#add('Konfekt/FastFold')
+
+" filetype and syntax
+call dein#add('jamessan/vim-gnupg')
 call dein#add('dzeban/vim-log-syntax')
 call dein#add('tpope/vim-markdown')
-call dein#add('benekastah/neomake')
-call dein#add('tpope/vim-obsession')
-call dein#add('tpope/vim-repeat')
 call dein#add('parnmatt/vim-root', {'rev': 'develop'})
+call dein#add('Shougo/context_filetype.vim')
+
+" completion and snippets
+call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neoinclude.vim')
+" C / C++ / Objective-C / Objective-C++
+" call dein#add('zchee/deoplete-clang')  " broken currently
+" Python
+call dein#add('zchee/deoplete-jedi')
+" VimL
+call dein#add('Shougo/neco-vim')
+call dein#add('Shougo/neco-syntax')
+" Zsh
+call dein#add('zchee/deoplete-zsh')
+" GitHub
+call dein#add('SevereOverfl0w/deoplete-github')
+
+" system
+call dein#add('tpope/vim-capslock')
+call dein#add('tpope/vim-eunuch')
+call dein#add('tpope/vim-obsession')
+
+" editing
+call dein#add('tpope/vim-abolish')
+call dein#add('tpope/vim-commentary')
+call dein#add('junegunn/vim-easy-align')
+call dein#add('tpope/vim-endwise')
+call dein#add('tommcdo/vim-exchange')
+call dein#add('whatyouhide/vim-lengthmatters')
+call dein#add('benekastah/neomake')
+call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-speeddating')
 call dein#add('AndrewRadev/splitjoin.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('AndrewRadev/switch.vim')
-call dein#add('SirVer/ultisnips')
 call dein#add('tpope/vim-unimpaired')
 call dein#add('nelstrom/vim-visual-star-search')
 
@@ -54,16 +82,24 @@ if dein#check_install()
     call dein#install()
 endif
 
+function! RemovePlugins()
+    call map(dein#check_clean(), "delete(v:val, 'rf')")
+endfunction
+
 filetype plugin indent on
 syntax enable
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set listchars="tab:▸ ,trail:·,eol:¬,nbsp:●"
+set listchars="tab:▸ ,trail:·,eol:¬,nbsp:∙"
 set number
 set relativenumber
+set noshowmode
 set wrap
 set linebreak
 set splitbelow
@@ -109,8 +145,7 @@ cnoreabbrev XA xa
 " turn off hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
 
- 
-" Colour scheme
+" colour scheme
 set background=dark
 silent! colorscheme gruvbox
 
@@ -127,6 +162,14 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " deoplete
 call deoplete#enable()
+" deolete-github
+let g:deoplete#sources.gitcommit = ['github']
+let g:deoplete#keyword_patterns.gitcommit = '.+'
+call deoplete#util#set_pattern(
+            \ g:deoplete#omni#input_patterns,
+            \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
+
+call echodoc#enable()
 
 " UltiSnips
 let g:UltiSnipsEditSplit = "horizontal"
@@ -196,10 +239,10 @@ autocmd filetype java setlocal makeprg=javac\ %
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* SetTab call SetTab()
 function! SetTab()
-	let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-	if l:tabstop > 0
-		let &l:sts = l:tabstop
-		let &l:ts = l:tabstop
-		let &l:sw = l:tabstop
-	endif
+    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+    if l:tabstop > 0
+        let &l:sts = l:tabstop
+        let &l:ts = l:tabstop
+        let &l:sw = l:tabstop
+    endif
 endfunction
