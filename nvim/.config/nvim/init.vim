@@ -92,6 +92,7 @@ syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
+set mouse=
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -105,6 +106,7 @@ set linebreak
 set splitbelow
 set splitright
 set hidden
+set inccommand=split
 
 " file finding
 set path+=**
@@ -169,6 +171,7 @@ call deoplete#util#set_pattern(
             \ g:deoplete#omni#input_patterns,
             \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
 
+" echodoc
 call echodoc#enable()
 
 " UltiSnips
