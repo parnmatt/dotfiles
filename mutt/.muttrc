@@ -88,6 +88,9 @@ set honor_followup_to
 set editor = "nvim -f"
 set display_filter = ~/.config/mutt/local_time.py
 
+# colour scheme
+source ~/.config/mutt/colors
+
 # Pager
 alternative_order text/plain text/html
 auto_view text/html
