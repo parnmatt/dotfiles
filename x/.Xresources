@@ -1,25 +1,134 @@
 ! gruvbox
-! Scheme: Pavel Pertsev (github:morhetz)
+! Scheme: @morhetz (GitHub)
 
+! currently there is a clash with neutral blue and faded aqua; both are color66
+
+! === shared colours ===========================================================
+! === dark ID | light ID ===
+
+! --- neutral red ---
+*.color1:     #cc241d
+*.color124:   #cc241d
+! --- neutral green ---
+*.color2:     #98971a
+*.color106:   #98971a
+! --- neutral yellow ---
+*.color3:     #d79921
+*.color172:   #d79921
+! --- neutral blue ---
+*.color4:     #458588
+*.color66:    #458588
+! --- neutral purple ---
+*.color5:     #b16286
+*.color132:   #b16286
+! --- neutral aqua ---
+*.color6:     #689d6a
+*.color72:    #689d6a
+! --- neutral orange ---
+*.color166:   #d65d0e
+! --- bright gray | faded gray ---
+*.color8:     #928374
+*.color245:   #928374
+*.color244:   #928374
+
+! --- bg0 | fg0 ---
+*.color235:   #282828
+! --- bg1 | fg1 ---
+*.color237:   #3c3836
+! --- bg2 | fg2 ---
+*.color239:   #504945
+! --- bg3 | fg3 ---
+*.color241:   #665c54
+! --- bg4 | fg4 ---
+*.color243:   #7c6f64
+
+! --- fg0 | bg0 ---
+*.color229:   #fbf1c7
+! --- fg1 | bg1 ---
+*.color223:   #ebdbb2
+! --- fg2 | bg2 ---
+*.color250:   #d5c4a1
+! --- fg3 | bg3 ---
+*.color248:   #bdae93
+! --- fg4 | bg4 ---
+*.color246:   #a89984
+
+! Note: to switch dark / light theme, toggle comment:
+!   *.background
+!   *.foreground
+!   *.color{0..15}
+
+! === dark theme ===============================================================
+! --- bg ---
 *.background: #282828
+*.color0:     #282828
+! --- bg0_h ---
+*.color234:   #1d2021
+! --- bg0_s ---
+*.color236:   #32302f
+! --- fg ---
 *.foreground: #ebdbb2
-*.color0:  #282828
-*.color8:  #928374
-*.color1:  #cc241d
-*.color9:  #fb4934
-*.color2:  #98971a
-*.color10: #b8bb26
-*.color3:  #d79921
-*.color11: #fabd2f
-*.color4:  #458588
-*.color12: #83a598
-*.color5:  #b16286
-*.color13: #d3869b
-*.color6:  #689d6a
-*.color14: #8ec07c
-*.color7:  #a89984
-*.color15: #ebdbb2
+*.color15:    #ebdbb2
 
+! --- gray ---
+*.color7:     #a89984
+! --- bright red ---
+*.color9:     #fb4934
+*.color167:   #fb4934
+! --- bright green ---
+*.color10:    #b8bb26
+*.color142:   #b8bb26
+! --- bright yellow ---
+*.color11:    #fabd2f
+*.color214:   #fabd2f
+! --- bright blue ---
+*.color12:    #83a598
+*.color109:   #83a598
+! --- bright purple ---
+*.color13:    #d3869b
+*.color175:   #d3869b
+! --- bright aqua ---
+*.color14:    #8ec07c
+*.color108:   #8ec07c
+! --- bright orange ---
+*.color208:   #fe8019
+
+! === light theme ==============================================================
+! --- bg ---
+! *.background: #fbf1c7
+! *.color0:     #fbf1c7
+! --- bg0_h ---
+*.color230:   #f9f5d7
+! --- bg0_s ---
+*.color228:   #f2e5bc
+! --- fg ---
+! *.foreground: #3c3836
+! *.color15:    #3c3836
+
+! --- gray ---
+! *.color7:     #7c6f64
+! --- faded red ---
+! *.color9:     #9d0006
+*.color88:    #9d0006
+! --- faded green ---
+! *.color10:    #79740e
+*.color100:   #79740e
+! --- faded yellow ---
+! *.color11:    #b57614
+*.color136:   #b57614
+! --- faded blue ---
+! *.color12:    #076678
+*.color24:    #076678
+! --- faded purple ---
+! *.color13:    #8f3f71
+*.color96:    #8f3f71
+! --- faded aqua ---
+! *.color14:    #427b58
+! *.color66:    #427b58
+! --- faded orange ---
+*.color130:   #af3a03
+
+! === styling ==================================================================
 ! urxvt styling
 URxvt.scrollstyle: plain
 URxvt.scrollColor: #3c3836
