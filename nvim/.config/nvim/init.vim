@@ -210,6 +210,7 @@ let g:neomake_cpp_enabled_makers = ['gcc', 'cppcheck']
 
 " Close preview window
 autocmd CompleteDone * pclose
+autocmd TermOpen * LengthmattersReload
 
 " Source vimrc when saved
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
