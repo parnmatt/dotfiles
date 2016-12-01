@@ -1,0 +1,8 @@
+# aliases
+
+alias e="$EDITOR"
+alias erc="e $EDITOR_RC"
+alias q=exit
+
+# load local aliases
+[[ -x "$HOME/.aliases.local" ]] && source "$HOME/.aliases.local"
