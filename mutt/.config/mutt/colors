@@ -1,5 +1,6 @@
 # assuming gruvbox colors
-# decare terminal color aliases
+#
+# decare (all) terminal color aliases
 # shared colours
 set my_gruvbox_neutral_red = color124
 set my_gruvbox_neutral_green = color106
@@ -38,7 +39,7 @@ set my_gruvbox_bg_dark = color235
 set my_gruvbox_bg0_h_dark = color234
 set my_gruvbox_bg0_s_dark = color236
 set my_gruvbox_fg_dark = color223
-set my_gruvbox_gray_dark = color246
+set my_gruvbox_neutral_gray_dark = color246
 set my_gruvbox_bright_red = color167
 set my_gruvbox_bright_green = color142
 set my_gruvbox_bright_yellow = color214
@@ -52,7 +53,7 @@ set my_gruvbox_bg_light = color229
 set my_gruvbox_bg0_h_light = color230
 set my_gruvbox_bg0_s_light = color228
 set my_gruvbox_fg_light = color237
-set my_gruvbox_gray_light = color243
+set my_gruvbox_neutral_gray_light = color243
 set my_gruvbox_faded_red = color88
 set my_gruvbox_faded_green = color100
 set my_gruvbox_faded_yellow = color136
@@ -60,6 +61,60 @@ set my_gruvbox_faded_blue = color24
 set my_gruvbox_faded_purple = color96
 set my_gruvbox_faded_aqua = color66
 set my_gruvbox_faded_orange = color130
+
+# set theme
+# TODO: figure out how to do this dynamically
+#   would be nice to have '[dark]/light' and option for '[normal]/hard/soft'
+#   for now just toggle the comment:
+## dark
+set my_gruvbox_bg = $my_gruvbox_bg_dark
+set my_gruvbox_bg0_h = $my_gruvbox_bg0_h_dark
+set my_gruvbox_bg0_s = $my_gruvbox_bg0_s_dark
+set my_gruvbox_bg0 = $my_gruvbox_bg0_dark 
+set my_gruvbox_bg1 = $my_gruvbox_bg1_dark 
+set my_gruvbox_bg2 = $my_gruvbox_bg2_dark 
+set my_gruvbox_bg3 = $my_gruvbox_bg3_dark 
+set my_gruvbox_bg4 = $my_gruvbox_bg4_dark 
+set my_gruvbox_fg = $my_gruvbox_fg_dark
+set my_gruvbox_fg0 = $my_gruvbox_fg0_dark 
+set my_gruvbox_fg1 = $my_gruvbox_fg1_dark 
+set my_gruvbox_fg2 = $my_gruvbox_fg2_dark 
+set my_gruvbox_fg3 = $my_gruvbox_fg3_dark 
+set my_gruvbox_fg4 = $my_gruvbox_fg4_dark 
+set my_gruvbox_neutral_gray = $my_gruvbox_neutral_gray_dark
+set my_gruvbox_gray = $my_gruvbox_bright_gray
+set my_gruvbox_red = $my_gruvbox_bright_red
+set my_gruvbox_green = $my_gruvbox_bright_green
+set my_gruvbox_yellow = $my_gruvbox_bright_yellow
+set my_gruvbox_blue = $my_gruvbox_bright_blue
+set my_gruvbox_purple = $my_gruvbox_bright_purple
+set my_gruvbox_aqua = $my_gruvbox_bright_aqua
+set my_gruvbox_orange = $my_gruvbox_bright_orange
+                          
+## light
+# set my_gruvbox_bg = $my_gruvbox_bg_light
+# set my_gruvbox_bg0_h = $my_gruvbox_bg0_h_light
+# set my_gruvbox_bg0_s = $my_gruvbox_bg0_s_light
+# set my_gruvbox_bg0 = $my_gruvbox_bg0_light 
+# set my_gruvbox_bg1 = $my_gruvbox_bg1_light 
+# set my_gruvbox_bg2 = $my_gruvbox_bg2_light 
+# set my_gruvbox_bg3 = $my_gruvbox_bg3_light 
+# set my_gruvbox_bg4 = $my_gruvbox_bg4_light 
+# set my_gruvbox_fg = $my_gruvbox_fg_light
+# set my_gruvbox_fg0 = $my_gruvbox_fg0_light 
+# set my_gruvbox_fg1 = $my_gruvbox_fg1_light 
+# set my_gruvbox_fg2 = $my_gruvbox_fg2_light 
+# set my_gruvbox_fg3 = $my_gruvbox_fg3_light 
+# set my_gruvbox_fg4 = $my_gruvbox_fg4_light 
+# set my_gruvbox_neutral_gray = $my_gruvbox_neutral_gray_light
+# set my_gruvbox_gray = $my_gruvbox_faded_gray
+# set my_gruvbox_red = $my_gruvbox_faded_red
+# set my_gruvbox_green = $my_gruvbox_faded_green
+# set my_gruvbox_yellow = $my_gruvbox_faded_yellow
+# set my_gruvbox_blue = $my_gruvbox_faded_blue
+# set my_gruvbox_purple = $my_gruvbox_faded_purple
+# set my_gruvbox_aqua = $my_gruvbox_faded_aqua
+# set my_gruvbox_orange = $my_gruvbox_faded_orange
 
 # basic colors ---------------------------------------------------------
 color normal        color254        color0
@@ -192,7 +247,7 @@ unset my_gruvbox_bg_dark
 unset my_gruvbox_bg0_h_dark
 unset my_gruvbox_bg0_s_dark
 unset my_gruvbox_fg_dark
-unset my_gruvbox_gray_dark
+unset my_gruvbox_neutral_gray_dark
 unset my_gruvbox_bright_red
 unset my_gruvbox_bright_green
 unset my_gruvbox_bright_yellow
@@ -206,7 +261,7 @@ unset my_gruvbox_bg_light
 unset my_gruvbox_bg0_h_light
 unset my_gruvbox_bg0_s_light
 unset my_gruvbox_fg_light
-unset my_gruvbox_gray_light
+unset my_gruvbox_neutral_gray_light
 unset my_gruvbox_faded_red
 unset my_gruvbox_faded_green
 unset my_gruvbox_faded_yellow
@@ -215,3 +270,27 @@ unset my_gruvbox_faded_purple
 unset my_gruvbox_faded_aqua
 unset my_gruvbox_faded_orange
 
+# set theme
+unset my_gruvbox_bg
+unset my_gruvbox_bg0_h
+unset my_gruvbox_bg0_s
+unset my_gruvbox_bg0
+unset my_gruvbox_bg1
+unset my_gruvbox_bg2
+unset my_gruvbox_bg3
+unset my_gruvbox_bg4
+unset my_gruvbox_fg
+unset my_gruvbox_fg0
+unset my_gruvbox_fg1
+unset my_gruvbox_fg2
+unset my_gruvbox_fg3
+unset my_gruvbox_fg4
+unset my_gruvbox_neutral_gray
+unset my_gruvbox_gray
+unset my_gruvbox_red
+unset my_gruvbox_green
+unset my_gruvbox_yellow
+unset my_gruvbox_blue
+unset my_gruvbox_purple
+unset my_gruvbox_aqua
+unset my_gruvbox_orange
