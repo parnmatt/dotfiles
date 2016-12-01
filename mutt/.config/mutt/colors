@@ -1,4 +1,65 @@
 # assuming gruvbox colors
+# decare terminal color aliases
+# shared colours
+set my_gruvbox_neutral_red = color124
+set my_gruvbox_neutral_green = color106
+set my_gruvbox_neutral_yellow = color172
+set my_gruvbox_neutral_blue = color66
+set my_gruvbox_neutral_purple = color132
+set my_gruvbox_neutral_aqua = color72
+set my_gruvbox_neutral_orange = color166
+set my_gruvbox_bright_gray = color245
+set my_gruvbox_faded_gray = color244
+
+set my_gruvbox_bg0_dark = color235
+set my_gruvbox_fg0_light = color235
+set my_gruvbox_bg1_dark = color237
+set my_gruvbox_fg1_light = color237
+set my_gruvbox_bg2_dark = color239
+set my_gruvbox_fg2_light = color239
+set my_gruvbox_bg3_dark = color241
+set my_gruvbox_fg3_light = color241
+set my_gruvbox_bg4_dark = color243
+set my_gruvbox_fg4_light = color243
+
+set my_gruvbox_fg0_dark = color229
+set my_gruvbox_bg0_light = color229
+set my_gruvbox_fg1_dark = color223
+set my_gruvbox_bg1_light = color223
+set my_gruvbox_fg2_dark = color250
+set my_gruvbox_bg2_light = color250
+set my_gruvbox_fg3_dark = color248
+set my_gruvbox_bg3_light = color248
+set my_gruvbox_fg4_dark = color246
+set my_gruvbox_bg4_light = color246
+
+# dark theme
+set my_gruvbox_bg_dark = color235
+set my_gruvbox_bg0_h_dark = color234
+set my_gruvbox_bg0_s_dark = color236
+set my_gruvbox_fg_dark = color223
+set my_gruvbox_gray_dark = color246
+set my_gruvbox_bright_red = color167
+set my_gruvbox_bright_green = color142
+set my_gruvbox_bright_yellow = color214
+set my_gruvbox_bright_blue = color109
+set my_gruvbox_bright_purple = color175
+set my_gruvbox_bright_aqua = color108
+set my_gruvbox_bright_orange = color208
+
+# light theme
+set my_gruvbox_bg_light = color229
+set my_gruvbox_bg0_h_light = color230
+set my_gruvbox_bg0_s_light = color228
+set my_gruvbox_fg_light = color237
+set my_gruvbox_gray_light = color243
+set my_gruvbox_faded_red = color88
+set my_gruvbox_faded_green = color100
+set my_gruvbox_faded_yellow = color136
+set my_gruvbox_faded_blue = color24
+set my_gruvbox_faded_purple = color96
+set my_gruvbox_faded_aqua = color66
+set my_gruvbox_faded_orange = color130
 
 # basic colors ---------------------------------------------------------
 color normal        color254        color0
@@ -64,13 +125,13 @@ color header        color33         color0        "^(Subject)"
 
 # body -----------------------------------------------------------------
 
-color quoted        color33         color0
-color quoted1       color37         color0
-color quoted2       color136        color0
-color quoted3       color160        color0
-color quoted4       color166        color0
+color quoted color8 color0
+color quoted1 color12 color0
+color quoted2 color8 color0
+color quoted3 color12 color0
+color quoted4 color8 color0
 
-color signature     color240        color0
+color signature color14 color0
 color bold          color235        color0
 color underline     color235        color0
 color normal        color244        color0
@@ -91,3 +152,66 @@ mono  body          bold                            "^gpg: BAD signature from.*"
 ## URLs and emails
 color body color3 color0 "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"  # email addresses
 color body color10 color0 "[a-z]+://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"  # URLs
+
+# remove terminal color aliases
+# shared colours
+unset my_gruvbox_neutral_red
+unset my_gruvbox_neutral_green
+unset my_gruvbox_neutral_yellow
+unset my_gruvbox_neutral_blue
+unset my_gruvbox_neutral_purple
+unset my_gruvbox_neutral_aqua
+unset my_gruvbox_neutral_orange
+unset my_gruvbox_bright_gray
+unset my_gruvbox_faded_gray
+
+unset my_gruvbox_bg0_dark
+unset my_gruvbox_fg0_light
+unset my_gruvbox_bg1_dark
+unset my_gruvbox_fg1_light
+unset my_gruvbox_bg2_dark
+unset my_gruvbox_fg2_light
+unset my_gruvbox_bg3_dark
+unset my_gruvbox_fg3_light
+unset my_gruvbox_bg4_dark
+unset my_gruvbox_fg4_light
+
+unset my_gruvbox_fg0_dark
+unset my_gruvbox_bg0_light
+unset my_gruvbox_fg1_dark
+unset my_gruvbox_bg1_light
+unset my_gruvbox_fg2_dark
+unset my_gruvbox_bg2_light
+unset my_gruvbox_fg3_dark
+unset my_gruvbox_bg3_light
+unset my_gruvbox_fg4_dark
+unset my_gruvbox_bg4_light
+
+# dark theme
+unset my_gruvbox_bg_dark
+unset my_gruvbox_bg0_h_dark
+unset my_gruvbox_bg0_s_dark
+unset my_gruvbox_fg_dark
+unset my_gruvbox_gray_dark
+unset my_gruvbox_bright_red
+unset my_gruvbox_bright_green
+unset my_gruvbox_bright_yellow
+unset my_gruvbox_bright_blue
+unset my_gruvbox_bright_purple
+unset my_gruvbox_bright_aqua
+unset my_gruvbox_bright_orange
+
+# light theme
+unset my_gruvbox_bg_light
+unset my_gruvbox_bg0_h_light
+unset my_gruvbox_bg0_s_light
+unset my_gruvbox_fg_light
+unset my_gruvbox_gray_light
+unset my_gruvbox_faded_red
+unset my_gruvbox_faded_green
+unset my_gruvbox_faded_yellow
+unset my_gruvbox_faded_blue
+unset my_gruvbox_faded_purple
+unset my_gruvbox_faded_aqua
+unset my_gruvbox_faded_orange
+
