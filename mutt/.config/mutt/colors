@@ -174,39 +174,40 @@ color index         color166        color160        "~="                       #
 
 # message headers ------------------------------------------------------
 
-color hdrdefault    color240        color0
-color header        color254        color0        "^(From)"
-color header        color33         color0        "^(Subject)"
+color hdrdefault $my_gruvbox_gray $my_gruvbox_bg
+color header $my_gruvbox_blue $my_gruvbox_bg "^((X-Local-)?Date)"
+color header $my_gruvbox_neutral_yellow $my_gruvbox_bg "^(From)"
+color header $my_gruvbox_green $my_gruvbox_bg "^(Subject)"
+color header $my_gruvbox_fg4 $my_gruvbox_bg "^(To)"
+color header $my_gruvbox_bg4 $my_gruvbox_bg "^(CC)"
+color header $my_gruvbox_bg3 $my_gruvbox_bg "^(BCC)"
 
 # body -----------------------------------------------------------------
 
-color quoted color8 color0
-color quoted1 color12 color0
-color quoted2 color8 color0
-color quoted3 color12 color0
-color quoted4 color8 color0
+color quoted $my_gruvbox_gray $my_gruvbox_bg
+color quoted1 $my_gruvbox_blue $my_gruvbox_bg
+color quoted2 $my_gruvbox_gray $my_gruvbox_bg
+color quoted3 $my_gruvbox_blue $my_gruvbox_bg
+color quoted4 $my_gruvbox_gray $my_gruvbox_bg
 
-color signature color14 color0
-color bold          color235        color0
-color underline     color235        color0
-color normal        color244        color0
+color signature $my_gruvbox_aqua $my_gruvbox_bg
 
-color body          color245        color0        "[;:][-o][)/(|]"    # emoticons
-color body          color245        color0        "[;:][)(|]"         # emoticons
+# emotes
+color body $my_gruvbox_blue $my_gruvbox_bg "[;:][-o][)/(|]"
+color body $my_gruvbox_blue $my_gruvbox_bg "[;:][)(|]"
 
 ## pgp
-
-color body          color160        color0        "(BAD signature)"
-color body          color37         color0        "(Good signature)"
-color body          color0        color0        "^gpg: Good signature .*"
-color body          color254        color0        "^gpg: "
-color body          color254        color160        "^gpg: BAD signature from.*"
-mono  body          bold                            "^gpg: Good signature"
-mono  body          bold                            "^gpg: BAD signature from.*"
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"
+color body $my_gruvbox_green $my_gruvbox_bg "(Good signature)"
+color body $my_gruvbox_red $my_gruvbox_bg "(BAD signature)"
+color body $my_gruvbox_gray $my_gruvbox_bg "^gpg: "
+color body $my_gruvbox_green $my_gruvbox_bg "^gpg: Good signature .*"
+color body $my_gruvbox_red $my_gruvbox_bg "^gpg: BAD signature from.*"
 
 ## URLs and emails
-color body color3 color0 "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"  # email addresses
-color body color10 color0 "[a-z]+://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"  # URLs
+color body $my_gruvbox_orange $my_gruvbox_bg "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"  # email addresses
+color body $my_gruvbox_green $my_gruvbox_bg "[a-z]+://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"  # URLs
 
 # remove terminal color aliases
 # shared colours
