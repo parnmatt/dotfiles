@@ -1,4 +1,4 @@
-# Compiled source #
+# compiled source #
 ###################
 *.com
 *.class
@@ -7,31 +7,54 @@
 *.o
 *.so
 
-# Packages #
+# packages and compressed files #
 ############
 # it's better to unpack these files and commit the raw source
 # git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
 
-# Logs and databases #
+# compressed
+*.gz
+*.bz2
+*.xz
+*.lz
+*.lzma
+*.lzo
+*.z
+*.Z
+
+# compressed archives
+# (short forms of *.tar.gz --> *.tgz etc.)
+*.7z
+*.tgz
+*.tb2
+*.tbz
+*.tbz2
+*.tlz
+*.txz
+*.tZ
+*.zip
+*.rar
+*.dmg
+
+# archives
+*.tar
+*.iso
+*.img
+*.cdr
+*.jar
+
+# logs and databases #
 ######################
 *.log
 *.sql
 *.sqlite
 
-# Temporary and swap files #
+# temporary and swap files #
 ############################
 .*.sw?
 *~
 
-# Tag files #
+# tag files #
 #############
 tags
 TAGS
@@ -48,6 +71,6 @@ ehthumbs.db
 Thumbs.db
 Icon
 
-# Sync service files #
+# sync service files #
 ######################
 .dropbox
