@@ -70,17 +70,17 @@ set my_gruvbox_faded_orange = color130
 set my_gruvbox_bg = $my_gruvbox_bg_dark
 set my_gruvbox_bg0_h = $my_gruvbox_bg0_h_dark
 set my_gruvbox_bg0_s = $my_gruvbox_bg0_s_dark
-set my_gruvbox_bg0 = $my_gruvbox_bg0_dark 
-set my_gruvbox_bg1 = $my_gruvbox_bg1_dark 
-set my_gruvbox_bg2 = $my_gruvbox_bg2_dark 
-set my_gruvbox_bg3 = $my_gruvbox_bg3_dark 
-set my_gruvbox_bg4 = $my_gruvbox_bg4_dark 
+set my_gruvbox_bg0 = $my_gruvbox_bg0_dark
+set my_gruvbox_bg1 = $my_gruvbox_bg1_dark
+set my_gruvbox_bg2 = $my_gruvbox_bg2_dark
+set my_gruvbox_bg3 = $my_gruvbox_bg3_dark
+set my_gruvbox_bg4 = $my_gruvbox_bg4_dark
 set my_gruvbox_fg = $my_gruvbox_fg_dark
-set my_gruvbox_fg0 = $my_gruvbox_fg0_dark 
-set my_gruvbox_fg1 = $my_gruvbox_fg1_dark 
-set my_gruvbox_fg2 = $my_gruvbox_fg2_dark 
-set my_gruvbox_fg3 = $my_gruvbox_fg3_dark 
-set my_gruvbox_fg4 = $my_gruvbox_fg4_dark 
+set my_gruvbox_fg0 = $my_gruvbox_fg0_dark
+set my_gruvbox_fg1 = $my_gruvbox_fg1_dark
+set my_gruvbox_fg2 = $my_gruvbox_fg2_dark
+set my_gruvbox_fg3 = $my_gruvbox_fg3_dark
+set my_gruvbox_fg4 = $my_gruvbox_fg4_dark
 set my_gruvbox_neutral_gray = $my_gruvbox_neutral_gray_dark
 set my_gruvbox_gray = $my_gruvbox_bright_gray
 set my_gruvbox_red = $my_gruvbox_bright_red
@@ -90,22 +90,22 @@ set my_gruvbox_blue = $my_gruvbox_bright_blue
 set my_gruvbox_purple = $my_gruvbox_bright_purple
 set my_gruvbox_aqua = $my_gruvbox_bright_aqua
 set my_gruvbox_orange = $my_gruvbox_bright_orange
-                          
+
 ## light
 # set my_gruvbox_bg = $my_gruvbox_bg_light
 # set my_gruvbox_bg0_h = $my_gruvbox_bg0_h_light
 # set my_gruvbox_bg0_s = $my_gruvbox_bg0_s_light
-# set my_gruvbox_bg0 = $my_gruvbox_bg0_light 
-# set my_gruvbox_bg1 = $my_gruvbox_bg1_light 
-# set my_gruvbox_bg2 = $my_gruvbox_bg2_light 
-# set my_gruvbox_bg3 = $my_gruvbox_bg3_light 
-# set my_gruvbox_bg4 = $my_gruvbox_bg4_light 
+# set my_gruvbox_bg0 = $my_gruvbox_bg0_light
+# set my_gruvbox_bg1 = $my_gruvbox_bg1_light
+# set my_gruvbox_bg2 = $my_gruvbox_bg2_light
+# set my_gruvbox_bg3 = $my_gruvbox_bg3_light
+# set my_gruvbox_bg4 = $my_gruvbox_bg4_light
 # set my_gruvbox_fg = $my_gruvbox_fg_light
-# set my_gruvbox_fg0 = $my_gruvbox_fg0_light 
-# set my_gruvbox_fg1 = $my_gruvbox_fg1_light 
-# set my_gruvbox_fg2 = $my_gruvbox_fg2_light 
-# set my_gruvbox_fg3 = $my_gruvbox_fg3_light 
-# set my_gruvbox_fg4 = $my_gruvbox_fg4_light 
+# set my_gruvbox_fg0 = $my_gruvbox_fg0_light
+# set my_gruvbox_fg1 = $my_gruvbox_fg1_light
+# set my_gruvbox_fg2 = $my_gruvbox_fg2_light
+# set my_gruvbox_fg3 = $my_gruvbox_fg3_light
+# set my_gruvbox_fg4 = $my_gruvbox_fg4_light
 # set my_gruvbox_neutral_gray = $my_gruvbox_neutral_gray_light
 # set my_gruvbox_gray = $my_gruvbox_faded_gray
 # set my_gruvbox_red = $my_gruvbox_faded_red
@@ -117,60 +117,55 @@ set my_gruvbox_orange = $my_gruvbox_bright_orange
 # set my_gruvbox_orange = $my_gruvbox_faded_orange
 
 # basic colors ---------------------------------------------------------
-color normal        color254        color0
-color error         color0         color9
-color tilde         color235        color0
-color message       color37         color0
-color markers       color160        color254
-color attachment    color254        color0
-color search        color61         color0
-color status        color254        color235
-color indicator     color0         color136
-color tree          color136        color0                                    # arrow in threads
+mono normal normal
+mono bold bold
+mono underline underline
+mono error bold
+mono indicator reverse
 
-# basic monocolor screen
-mono  bold          bold
-mono  underline     underline
-mono  indicator     reverse
-mono  error         bold
+color normal $my_gruvbox_fg $my_gruvbox_bg
+color bold $my_gruvbox_fg0 $my_gruvbox_bg
+color underline $my_gruvbox_fg $my_gruvbox_bg
+color error $my_gruvbox_bg $my_gruvbox_red
+color indicator $my_gruvbox_bg $my_gruvbox_yellow
+color tilde $my_gruvbox_fg $my_gruvbox_bg
+color message $my_gruvbox_aqua $my_gruvbox_bg
+color markers $my_gruvbox_bg3 $my_gruvbox_bg
+color attachment $my_gruvbox_fg $my_gruvbox_bg
+color search $my_gruvbox_purple $my_gruvbox_bg
+color status $my_gruvbox_fg4 $my_gruvbox_bg1
+color tree $my_gruvbox_yellow $my_gruvbox_bg  # arrow in threads
 
 # index ----------------------------------------------------------------
 
-color index         color160        color0        "~A"                        # all messages
-color index         color166        color0        "~E"                        # expired messages
-color index         color33         color0        "~N"                        # new messages
-color index         color33         color0        "~O"                        # old messages
-color index         color61         color0        "~Q"                        # messages that have been replied to
-color index         color240        color0        "~R"                        # read messages
-color index         color33         color0        "~U"                        # unread messages
-color index         color33         color0        "~U~$"                      # unread, unreferenced messages
-color index         color254        color0        "~v"                        # messages part of a collapsed thread
-color index         color254        color0        "~P"                        # messages from me
-color index         color37         color0        "~p!~F"                     # messages to me
-color index         color37         color0        "~N~p!~F"                   # new messages to me
-color index         color37         color0        "~U~p!~F"                   # unread messages to me
-color index         color240        color0        "~R~p!~F"                   # messages to me
-color index         color160        color0        "~F"                        # flagged messages
-color index         color160        color0        "~F~p"                      # flagged messages to me
-color index         color160        color0        "~N~F"                      # new flagged messages
-color index         color160        color0        "~N~F~p"                    # new flagged messages to me
-color index         color160        color0        "~U~F~p"                    # new flagged messages to me
-color index         color235        color160        "~D"                        # deleted messages
-color index         color245        color0        "~v~(!~N)"                  # collapsed thread with no unread
-color index         color136        color0        "~v~(~N)"                   # collapsed thread with some unread
-color index         color64         color0        "~N~v~(~N)"                 # collapsed thread with unread parent
-# statusbg used to indicated flagged when foreground color shows other status
-# for collapsed thread
-color index         color160        color235        "~v~(~F)!~N"                # collapsed thread with flagged, no unread
-color index         color136        color235        "~v~(~F~N)"                 # collapsed thread with some unread & flagged
-color index         color64         color235        "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
-color index         color64         color235        "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
-color index         color37         color235        "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
-color index         color136        color160        "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
-color index         color136        color0        "~(~N)"                    # messages in threads with some unread
-color index         color64         color0        "~S"                       # superseded messages
-color index         color160        color0        "~T"                       # tagged messages
-color index         color166        color160        "~="                       # duplicated messages
+color index $my_gruvbox_fg4 $my_gruvbox_bg "~A"  # all messages
+color index $my_gruvbox_bg2 $my_gruvbox_bg "~E"  # expired messages
+color index $my_gruvbox_blue $my_gruvbox_bg "~N"  # new messages
+color index $my_gruvbox_yellow $my_gruvbox_bg "~O"  # old messages
+color index $my_gruvbox_aqua $my_gruvbox_bg "~Q"  # messages that have been replied to
+color index $my_gruvbox_bg4 $my_gruvbox_bg "~R"  # read messages
+color index $my_gruvbox_green $my_gruvbox_bg "~U"  # unread messages
+color index $my_gruvbox_fg $my_gruvbox_bg "~P"  # messages from me
+color index $my_gruvbox_green $my_gruvbox_bg "~p!~F"  # messages to me
+color index $my_gruvbox_green $my_gruvbox_bg "~N~p!~F"  # new messages to me
+color index $my_gruvbox_green $my_gruvbox_bg "~U~p!~F"  # unread messages to me
+color index $my_gruvbox_fg4 $my_gruvbox_bg "~R~p!~F"  # messages to me
+color index $my_gruvbox_red $my_gruvbox_bg  "~F"  # flagged messages
+color index $my_gruvbox_fg $my_gruvbox_bg "~v"  # messages part of a collapsed thread
+color index color245 $my_gruvbox_bg "~v~(!~N)"  # collapsed thread with no unread
+color index color136 $my_gruvbox_bg "~v~(~N)"  # collapsed thread with some unread
+color index color64  $my_gruvbox_bg "~N~v~(~N)"   # collapsed thread with unread parent
+color index  color160 color235 "~v~(~F)!~N"  # collapsed thread with flagged, no unread
+color index  color136 color235 "~v~(~F~N)"  # collapsed thread with some unread & flagged
+color index  color64 color235 "~N~v~(~F~N)"  # collapsed thread with unread parent & flagged
+color index  color64 color235 "~N~v~(~F)"  # collapsed thread with unread parent, no unread inside, but some flagged
+color index  color37 color235 "~v~(~p)"  # collapsed thread with unread parent, no unread inside, some to me directly
+color index  color136 color160  "~v~(~D)"  # thread with deleted (doesn't differentiate between all or partial)
+color index  color136 $my_gruvbox_bg "~(~N)"  # messages in threads with some unread
+color index  color64 $my_gruvbox_bg "~S"  # superseded messages
+color index $my_gruvbox_fg $my_gruvbox_bg2 "~="  # duplicated messages
+color index $my_gruvbox_orange $my_gruvbox_bg "~T"  # tagged messages
+color index $my_gruvbox_bg $my_gruvbox_red "~D"  # deleted messages
 
 # message headers ------------------------------------------------------
 
