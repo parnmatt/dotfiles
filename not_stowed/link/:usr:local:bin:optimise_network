@@ -40,11 +40,11 @@ NetworkSpeed = namedtuple('NetworkSpeed', ('download', 'upload'))
 
 def _network_speed():
     """Calculate current download and upload speeds in kiB."""
-    tester = speedtest.Speedtest(units=('byte', 1))
+    tester = speedtest.Speedtest()
     tester.get_best_server()
 
-    download = tester.download() / 1024  # kiB
-    upload = tester.upload() / 1024  # kiB
+    download = tester.download() / 8 / 1024  # kiB
+    upload = tester.upload() / 8 / 1024  # kiB
     return NetworkSpeed(download, upload)
 
 
