@@ -1,0 +1,292 @@
+# assuming gruvbox colors
+#
+# decare (all) terminal color aliases
+# shared colours
+set my_gruvbox_neutral_red = color124
+set my_gruvbox_neutral_green = color106
+set my_gruvbox_neutral_yellow = color172
+set my_gruvbox_neutral_blue = color66
+set my_gruvbox_neutral_purple = color132
+set my_gruvbox_neutral_aqua = color72
+set my_gruvbox_neutral_orange = color166
+set my_gruvbox_bright_gray = color245
+set my_gruvbox_faded_gray = color244
+
+set my_gruvbox_bg0_dark = color235
+set my_gruvbox_fg0_light = color235
+set my_gruvbox_bg1_dark = color237
+set my_gruvbox_fg1_light = color237
+set my_gruvbox_bg2_dark = color239
+set my_gruvbox_fg2_light = color239
+set my_gruvbox_bg3_dark = color241
+set my_gruvbox_fg3_light = color241
+set my_gruvbox_bg4_dark = color243
+set my_gruvbox_fg4_light = color243
+
+set my_gruvbox_fg0_dark = color229
+set my_gruvbox_bg0_light = color229
+set my_gruvbox_fg1_dark = color223
+set my_gruvbox_bg1_light = color223
+set my_gruvbox_fg2_dark = color250
+set my_gruvbox_bg2_light = color250
+set my_gruvbox_fg3_dark = color248
+set my_gruvbox_bg3_light = color248
+set my_gruvbox_fg4_dark = color246
+set my_gruvbox_bg4_light = color246
+
+# dark theme
+set my_gruvbox_bg_dark = color235
+set my_gruvbox_bg0_h_dark = color234
+set my_gruvbox_bg0_s_dark = color236
+set my_gruvbox_fg_dark = color223
+set my_gruvbox_neutral_gray_dark = color246
+set my_gruvbox_bright_red = color167
+set my_gruvbox_bright_green = color142
+set my_gruvbox_bright_yellow = color214
+set my_gruvbox_bright_blue = color109
+set my_gruvbox_bright_purple = color175
+set my_gruvbox_bright_aqua = color108
+set my_gruvbox_bright_orange = color208
+
+# light theme
+set my_gruvbox_bg_light = color229
+set my_gruvbox_bg0_h_light = color230
+set my_gruvbox_bg0_s_light = color228
+set my_gruvbox_fg_light = color237
+set my_gruvbox_neutral_gray_light = color243
+set my_gruvbox_faded_red = color88
+set my_gruvbox_faded_green = color100
+set my_gruvbox_faded_yellow = color136
+set my_gruvbox_faded_blue = color24
+set my_gruvbox_faded_purple = color96
+set my_gruvbox_faded_aqua = color66
+set my_gruvbox_faded_orange = color130
+
+# set theme
+# TODO: figure out how to do this dynamically
+#   would be nice to have '[dark]/light' and option for '[normal]/hard/soft'
+#   for now just toggle the comment:
+## dark
+set my_gruvbox_bg = $my_gruvbox_bg_dark
+set my_gruvbox_bg0_h = $my_gruvbox_bg0_h_dark
+set my_gruvbox_bg0_s = $my_gruvbox_bg0_s_dark
+set my_gruvbox_bg0 = $my_gruvbox_bg0_dark
+set my_gruvbox_bg1 = $my_gruvbox_bg1_dark
+set my_gruvbox_bg2 = $my_gruvbox_bg2_dark
+set my_gruvbox_bg3 = $my_gruvbox_bg3_dark
+set my_gruvbox_bg4 = $my_gruvbox_bg4_dark
+set my_gruvbox_fg = $my_gruvbox_fg_dark
+set my_gruvbox_fg0 = $my_gruvbox_fg0_dark
+set my_gruvbox_fg1 = $my_gruvbox_fg1_dark
+set my_gruvbox_fg2 = $my_gruvbox_fg2_dark
+set my_gruvbox_fg3 = $my_gruvbox_fg3_dark
+set my_gruvbox_fg4 = $my_gruvbox_fg4_dark
+set my_gruvbox_neutral_gray = $my_gruvbox_neutral_gray_dark
+set my_gruvbox_gray = $my_gruvbox_bright_gray
+set my_gruvbox_red = $my_gruvbox_bright_red
+set my_gruvbox_green = $my_gruvbox_bright_green
+set my_gruvbox_yellow = $my_gruvbox_bright_yellow
+set my_gruvbox_blue = $my_gruvbox_bright_blue
+set my_gruvbox_purple = $my_gruvbox_bright_purple
+set my_gruvbox_aqua = $my_gruvbox_bright_aqua
+set my_gruvbox_orange = $my_gruvbox_bright_orange
+
+## light
+# set my_gruvbox_bg = $my_gruvbox_bg_light
+# set my_gruvbox_bg0_h = $my_gruvbox_bg0_h_light
+# set my_gruvbox_bg0_s = $my_gruvbox_bg0_s_light
+# set my_gruvbox_bg0 = $my_gruvbox_bg0_light
+# set my_gruvbox_bg1 = $my_gruvbox_bg1_light
+# set my_gruvbox_bg2 = $my_gruvbox_bg2_light
+# set my_gruvbox_bg3 = $my_gruvbox_bg3_light
+# set my_gruvbox_bg4 = $my_gruvbox_bg4_light
+# set my_gruvbox_fg = $my_gruvbox_fg_light
+# set my_gruvbox_fg0 = $my_gruvbox_fg0_light
+# set my_gruvbox_fg1 = $my_gruvbox_fg1_light
+# set my_gruvbox_fg2 = $my_gruvbox_fg2_light
+# set my_gruvbox_fg3 = $my_gruvbox_fg3_light
+# set my_gruvbox_fg4 = $my_gruvbox_fg4_light
+# set my_gruvbox_neutral_gray = $my_gruvbox_neutral_gray_light
+# set my_gruvbox_gray = $my_gruvbox_faded_gray
+# set my_gruvbox_red = $my_gruvbox_faded_red
+# set my_gruvbox_green = $my_gruvbox_faded_green
+# set my_gruvbox_yellow = $my_gruvbox_faded_yellow
+# set my_gruvbox_blue = $my_gruvbox_faded_blue
+# set my_gruvbox_purple = $my_gruvbox_faded_purple
+# set my_gruvbox_aqua = $my_gruvbox_faded_aqua
+# set my_gruvbox_orange = $my_gruvbox_faded_orange
+
+# basic colors ---------------------------------------------------------
+mono normal normal
+mono bold bold
+mono underline underline
+mono error bold
+mono indicator reverse
+
+color normal $my_gruvbox_fg $my_gruvbox_bg
+color bold $my_gruvbox_fg0 $my_gruvbox_bg
+color underline $my_gruvbox_fg $my_gruvbox_bg
+color error $my_gruvbox_bg $my_gruvbox_red
+color indicator $my_gruvbox_bg $my_gruvbox_yellow
+color tilde $my_gruvbox_fg $my_gruvbox_bg
+color message $my_gruvbox_aqua $my_gruvbox_bg
+color markers $my_gruvbox_bg3 $my_gruvbox_bg
+color attachment $my_gruvbox_fg $my_gruvbox_bg
+color search $my_gruvbox_purple $my_gruvbox_bg
+color status $my_gruvbox_fg4 $my_gruvbox_bg1
+color tree $my_gruvbox_yellow $my_gruvbox_bg  # arrow in threads
+
+# index ----------------------------------------------------------------
+
+color index $my_gruvbox_fg4 $my_gruvbox_bg "~A"  # all messages
+color index $my_gruvbox_bg2 $my_gruvbox_bg "~E"  # expired messages
+color index $my_gruvbox_blue $my_gruvbox_bg "~N"  # new messages
+color index $my_gruvbox_yellow $my_gruvbox_bg "~O"  # old messages
+color index $my_gruvbox_aqua $my_gruvbox_bg "~Q"  # messages that have been replied to
+color index $my_gruvbox_bg4 $my_gruvbox_bg "~R"  # read messages
+color index $my_gruvbox_green $my_gruvbox_bg "~U"  # unread messages
+color index $my_gruvbox_fg $my_gruvbox_bg "~P"  # messages from me
+color index $my_gruvbox_green $my_gruvbox_bg "~p!~F"  # messages to me
+color index $my_gruvbox_green $my_gruvbox_bg "~N~p!~F"  # new messages to me
+color index $my_gruvbox_green $my_gruvbox_bg "~U~p!~F"  # unread messages to me
+color index $my_gruvbox_fg4 $my_gruvbox_bg "~R~p!~F"  # messages to me
+color index $my_gruvbox_red $my_gruvbox_bg  "~F"  # flagged messages
+color index $my_gruvbox_fg $my_gruvbox_bg "~v"  # messages part of a collapsed thread
+color index color245 $my_gruvbox_bg "~v~(!~N)"  # collapsed thread with no unread
+color index color136 $my_gruvbox_bg "~v~(~N)"  # collapsed thread with some unread
+color index color64  $my_gruvbox_bg "~N~v~(~N)"   # collapsed thread with unread parent
+color index  color160 color235 "~v~(~F)!~N"  # collapsed thread with flagged, no unread
+color index  color136 color235 "~v~(~F~N)"  # collapsed thread with some unread & flagged
+color index  color64 color235 "~N~v~(~F~N)"  # collapsed thread with unread parent & flagged
+color index  color64 color235 "~N~v~(~F)"  # collapsed thread with unread parent, no unread inside, but some flagged
+color index  color37 color235 "~v~(~p)"  # collapsed thread with unread parent, no unread inside, some to me directly
+color index  color136 color160  "~v~(~D)"  # thread with deleted (doesn't differentiate between all or partial)
+color index  color136 $my_gruvbox_bg "~(~N)"  # messages in threads with some unread
+color index  color64 $my_gruvbox_bg "~S"  # superseded messages
+color index $my_gruvbox_fg $my_gruvbox_bg2 "~="  # duplicated messages
+color index $my_gruvbox_orange $my_gruvbox_bg "~T"  # tagged messages
+color index $my_gruvbox_bg $my_gruvbox_red "~D"  # deleted messages
+
+# message headers ------------------------------------------------------
+
+color hdrdefault $my_gruvbox_gray $my_gruvbox_bg
+color header $my_gruvbox_blue $my_gruvbox_bg "^((X-Local-)?Date)"
+color header $my_gruvbox_neutral_yellow $my_gruvbox_bg "^(From)"
+color header $my_gruvbox_green $my_gruvbox_bg "^(Subject)"
+color header $my_gruvbox_fg4 $my_gruvbox_bg "^(To)"
+color header $my_gruvbox_bg4 $my_gruvbox_bg "^(CC)"
+color header $my_gruvbox_bg3 $my_gruvbox_bg "^(BCC)"
+
+# body -----------------------------------------------------------------
+
+color quoted $my_gruvbox_gray $my_gruvbox_bg
+color quoted1 $my_gruvbox_blue $my_gruvbox_bg
+color quoted2 $my_gruvbox_gray $my_gruvbox_bg
+color quoted3 $my_gruvbox_blue $my_gruvbox_bg
+color quoted4 $my_gruvbox_gray $my_gruvbox_bg
+
+color signature $my_gruvbox_aqua $my_gruvbox_bg
+
+# emotes
+color body $my_gruvbox_blue $my_gruvbox_bg "[;:][-o][)/(|]"
+color body $my_gruvbox_blue $my_gruvbox_bg "[;:][)(|]"
+
+## pgp
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"
+color body $my_gruvbox_green $my_gruvbox_bg "(Good signature)"
+color body $my_gruvbox_red $my_gruvbox_bg "(BAD signature)"
+color body $my_gruvbox_gray $my_gruvbox_bg "^gpg: "
+color body $my_gruvbox_green $my_gruvbox_bg "^gpg: Good signature .*"
+color body $my_gruvbox_red $my_gruvbox_bg "^gpg: BAD signature from.*"
+
+## URLs and emails
+color body $my_gruvbox_orange $my_gruvbox_bg "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"  # email addresses
+color body $my_gruvbox_green $my_gruvbox_bg "[a-z]+://[\-\.,/%~_:?&=\#a-zA-Z0-9]+"  # URLs
+
+# remove terminal color aliases
+# shared colours
+unset my_gruvbox_neutral_red
+unset my_gruvbox_neutral_green
+unset my_gruvbox_neutral_yellow
+unset my_gruvbox_neutral_blue
+unset my_gruvbox_neutral_purple
+unset my_gruvbox_neutral_aqua
+unset my_gruvbox_neutral_orange
+unset my_gruvbox_bright_gray
+unset my_gruvbox_faded_gray
+
+unset my_gruvbox_bg0_dark
+unset my_gruvbox_fg0_light
+unset my_gruvbox_bg1_dark
+unset my_gruvbox_fg1_light
+unset my_gruvbox_bg2_dark
+unset my_gruvbox_fg2_light
+unset my_gruvbox_bg3_dark
+unset my_gruvbox_fg3_light
+unset my_gruvbox_bg4_dark
+unset my_gruvbox_fg4_light
+
+unset my_gruvbox_fg0_dark
+unset my_gruvbox_bg0_light
+unset my_gruvbox_fg1_dark
+unset my_gruvbox_bg1_light
+unset my_gruvbox_fg2_dark
+unset my_gruvbox_bg2_light
+unset my_gruvbox_fg3_dark
+unset my_gruvbox_bg3_light
+unset my_gruvbox_fg4_dark
+unset my_gruvbox_bg4_light
+
+# dark theme
+unset my_gruvbox_bg_dark
+unset my_gruvbox_bg0_h_dark
+unset my_gruvbox_bg0_s_dark
+unset my_gruvbox_fg_dark
+unset my_gruvbox_neutral_gray_dark
+unset my_gruvbox_bright_red
+unset my_gruvbox_bright_green
+unset my_gruvbox_bright_yellow
+unset my_gruvbox_bright_blue
+unset my_gruvbox_bright_purple
+unset my_gruvbox_bright_aqua
+unset my_gruvbox_bright_orange
+
+# light theme
+unset my_gruvbox_bg_light
+unset my_gruvbox_bg0_h_light
+unset my_gruvbox_bg0_s_light
+unset my_gruvbox_fg_light
+unset my_gruvbox_neutral_gray_light
+unset my_gruvbox_faded_red
+unset my_gruvbox_faded_green
+unset my_gruvbox_faded_yellow
+unset my_gruvbox_faded_blue
+unset my_gruvbox_faded_purple
+unset my_gruvbox_faded_aqua
+unset my_gruvbox_faded_orange
+
+# set theme
+unset my_gruvbox_bg
+unset my_gruvbox_bg0_h
+unset my_gruvbox_bg0_s
+unset my_gruvbox_bg0
+unset my_gruvbox_bg1
+unset my_gruvbox_bg2
+unset my_gruvbox_bg3
+unset my_gruvbox_bg4
+unset my_gruvbox_fg
+unset my_gruvbox_fg0
+unset my_gruvbox_fg1
+unset my_gruvbox_fg2
+unset my_gruvbox_fg3
+unset my_gruvbox_fg4
+unset my_gruvbox_neutral_gray
+unset my_gruvbox_gray
+unset my_gruvbox_red
+unset my_gruvbox_green
+unset my_gruvbox_yellow
+unset my_gruvbox_blue
+unset my_gruvbox_purple
+unset my_gruvbox_aqua
+unset my_gruvbox_orange

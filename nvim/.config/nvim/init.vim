@@ -240,6 +240,9 @@ autocmd filetype markdown setlocal makeprg=cmark\ --smart\ --nobreaks\ %>%:r.htm
 " Java
 autocmd filetype java setlocal makeprg=javac\ %
 
+" Xdefaults
+autocmd filetype xdefaults setlocal commentstring=!\ %s
+
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* SetTab call SetTab()
 function! SetTab()
