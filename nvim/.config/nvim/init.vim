@@ -3,20 +3,20 @@ autocmd!
 " dein plugin manager
 function! InstallPluginManager()
     echom 'Installing dein...'
-    silent! call mkdir($XDG_CONFIG_HOME . '/nvim/dein', 'p')
+    silent! call mkdir($XDG_CONFIG_HOME.'/nvim/dein', 'p')
     silent! execute '!curl --fail --location --output /tmp/dein.sh '
              \ . 'https://raw.githubusercontent.com/'
              \ . 'Shougo/dein.vim/master/bin/installer.sh'
-    silent! execute '!sh /tmp/dein.sh ' . $XDG_CONFIG_HOME . '/nvim/dein'
+    silent! execute '!sh /tmp/dein.sh '.$XDG_CONFIG_HOME.'/nvim/dein'
 endfunction
 
-if !filereadable($XDG_CONFIG_HOME . '/nvim/dein/'
+if !filereadable($XDG_CONFIG_HOME.'/nvim/dein/'
             \ . 'repos/github.com/Shougo/dein.vim/autoload/dein.vim')
     call InstallPluginManager()
 endif
 
 set runtimepath+=$XDG_CONFIG_HOME/nvim/dein/repos/github.com/Shougo/dein.vim
-call dein#begin($XDG_CONFIG_HOME . '/nvim/dein')
+call dein#begin($XDG_CONFIG_HOME.'/nvim/dein')
 call dein#add('Shougo/dein.vim')
 
 " git helpers
@@ -28,7 +28,10 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('bling/vim-airline')
 call dein#add('godlygeek/csapprox')
 call dein#add('morhetz/gruvbox')
-call dein#add('Shougo/echodoc')
+call dein#add('Shougo/echodoc', {
+            \ 'lazy' : 1,
+            \ 'on_event': 'InsertEnter',
+            \ })
 call dein#add('Konfekt/FastFold')
 
 " filetype and syntax
@@ -43,9 +46,6 @@ call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neoinclude.vim')
-" C / C++ / Objective-C / Objective-C++
-" call dein#add('zchee/deoplete-clang')  " broken currently
-" Python
 call dein#add('zchee/deoplete-jedi')
 " VimL
 call dein#add('Shougo/neco-vim')
@@ -54,6 +54,10 @@ call dein#add('Shougo/neco-syntax')
 call dein#add('zchee/deoplete-zsh')
 " GitHub
 call dein#add('SevereOverfl0w/deoplete-github')
+" Go
+call dein#add('fatih/vim-go')
+call dein#config('fatih/vim-go', {'hook_post_update': 'GoUpdateBinaries'})
+call dein#add('zchee/deoplete-go')
 
 " system
 call dein#add('tpope/vim-capslock')
@@ -97,7 +101,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set listchars="tab:▸ ,trail:·,eol:¬,nbsp:∙"
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:∙
 set number
 set relativenumber
 set noshowmode
@@ -107,6 +111,7 @@ set splitbelow
 set splitright
 set hidden
 set inccommand=split
+set completeopt=menu,preview,noselect
 
 " file finding
 set path+=**
@@ -144,6 +149,9 @@ cnoreabbrev X x
 cnoreabbrev Xa xa
 cnoreabbrev XA xa
 
+" Esc to normal mode in terminal
+tnoremap <Esc> <C-\><C-n>
+
 " turn off hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
 
@@ -172,10 +180,14 @@ call deoplete#util#set_pattern(
             \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
 
 " echodoc
-call echodoc#enable()
+let g:echodoc_enable_at_startup = 1
+
+" vim-go
+let g:go_fmt_command = 'goimports'
+let g:go_template_autocreate = 0
 
 " UltiSnips
-let g:UltiSnipsEditSplit = "horizontal"
+let g:UltiSnipsEditSplit = 'horizontal'
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " EasyAlign
