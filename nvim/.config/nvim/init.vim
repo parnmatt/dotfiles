@@ -45,19 +45,22 @@ call dein#add('Shougo/context_filetype.vim')
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neoinclude.vim')
+" call dein#add('Shougo/neoinclude.vim')
+" C, C++, Objective C
+call dein#add('tweekmonster/deoplete-clang2')
+" Python
 call dein#add('zchee/deoplete-jedi')
-" VimL
-call dein#add('Shougo/neco-vim')
-call dein#add('Shougo/neco-syntax')
-" Zsh
-call dein#add('zchee/deoplete-zsh')
 " GitHub
 call dein#add('SevereOverfl0w/deoplete-github')
 " Go
 call dein#add('fatih/vim-go')
 call dein#config('fatih/vim-go', {'hook_post_update': 'GoUpdateBinaries'})
 call dein#add('zchee/deoplete-go')
+" VimL
+call dein#add('Shougo/neco-vim')
+call dein#add('Shougo/neco-syntax')
+" Zsh
+call dein#add('zchee/deoplete-zsh')
 
 " system
 call dein#add('tpope/vim-capslock')
@@ -65,6 +68,7 @@ call dein#add('tpope/vim-eunuch')
 call dein#add('tpope/vim-obsession')
 
 " editing
+call dein#add('vim-scripts/Smart-Tabs')
 call dein#add('tpope/vim-abolish')
 call dein#add('tpope/vim-commentary')
 call dein#add('junegunn/vim-easy-align')
@@ -98,9 +102,12 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 set mouse=
 set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=-1
+set shiftwidth=0
 set expandtab
+" set noexpandtab
+" set cindent
+" set cinoptions=(0,u0,U0
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:∙
 set number
 set relativenumber
@@ -243,7 +250,7 @@ autocmd filetype c,cpp setlocal commentstring=//\ %s
 
 " LaTeX
 autocmd BufNewFile,BufRead *.tex setlocal filetype=tex
-autocmd filetype tex setlocal makeprg=latexmk\ -pdf\ %
+autocmd filetype tex setlocal makeprg=latexmk\ %
 autocmd filetype tex setlocal iskeyword+=:,.,_
 
 " Markdown
@@ -254,14 +261,3 @@ autocmd filetype java setlocal makeprg=javac\ %
 
 " Xdefaults
 autocmd filetype xdefaults setlocal commentstring=!\ %s
-
-" Set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* SetTab call SetTab()
-function! SetTab()
-    let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-    if l:tabstop > 0
-        let &l:sts = l:tabstop
-        let &l:ts = l:tabstop
-        let &l:sw = l:tabstop
-    endif
-endfunction
