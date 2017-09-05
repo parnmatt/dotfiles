@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# ~/.xprofile
+
+# Custom keys and themes
+setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
+[[ -x "$HOME/.Xmodmap" ]] && xmodmap "$HOME/.Xmodmap"
+[[ -x "$HOME/.Xresources" ]] && xrdb -override "$HOME/.Xresources"
+
+# Background image
+[[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg" &
+
+# Autolock screen after 10mins
+[[ -x "$HOME/.local/bin/locker" ]] && "$HOME/.local/bin/locker" 10 &
+
+# Composer
+compton --daemon --fade-delta=2
+
+# Sound
+start-pulseaudio-x11
+
+# Activate numlock
+numlockx &
+
+# Auto hide mouse pointer
+unclutter &
+
+# Dropbox
+dropbox-cli start

@@ -11,25 +11,9 @@ if  [[ -d  /etc/X11/xinit/xinit.d ]]; then
   unset f
 fi
 
-# Custom keys and themes
-setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
-[[ -x "$HOME/.Xmodmap" ]] && xmodmap "$HOME/.Xmodmap"
-[[ -x "$HOME/.Xresources" ]] && xrdb -override "$HOME/.Xresources"
+# Start profile
 
-# Background image
-[[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg" &
-
-# Autolock screen after 10mins
-[[ -x "$HOME/.local/bin/locker" ]] && "$HOME/.local/bin/locker" 10 &
-
-# Sound
-start-pulseaudio-x11
-
-# Auto hide mouse pointer
-unclutter &
-
-# Activate numlock
-numlockx &
+[[ -x "$HOME/.xprofile" ]] && "$HOME/.xprofile"
 
 # Start Window Manager
 [[ -x "$HOME/.exec-wm" ]] && "$HOME/.exec-wm"
