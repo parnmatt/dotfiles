@@ -145,10 +145,11 @@ bindsym Shift+XF86MonBrightnessDown exec light -U 25
 bindsym Shift+XF86MonBrightnessUp exec light -A 25
 
 # media
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym Shift+XF86AudioLowerVolume exec amixer -q set Master 10%-
-bindsym Shift+XF86AudioRaiseVolume exec amixer -q set Master 10%+
+bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list sinks short | grep RUNNING | cut -f1 | head -n1) toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list sinks short | grep RUNNING | cut -f1 | head -n1) -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list sinks short | grep RUNNING | cut -f1 | head -n1) +5%
+bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list sinks short | grep RUNNING | cut -f1 | head -n1) -10%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list sinks short | grep RUNNING | cut -f1 | head -n1) +10%
 
 # Print screen
 bindsym Print exec scrot
