@@ -1,9 +1,6 @@
 # Sets Prezto options.
 
-#
 # General
-#
-
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
 
@@ -24,41 +21,25 @@ zstyle ':prezto:load' pmodule \
   'rsync' \
   'prompt'
 
-#
 # Editor
-#
-
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-#
 # Git
-#
-
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
-
-#
 # Prompt
-#
-
 # Set the prompt theme to load.
 zstyle ':prezto:module:prompt' theme 'sorin'
 
-#
 # SSH
-#
-
 # Set the SSH identities to load into the agent.
 zstyle ':prezto:module:ssh:load' identities 'id_rsa'
 
-#
 # Terminal
-#
-
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
