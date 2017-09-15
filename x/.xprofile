@@ -11,7 +11,9 @@ setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
 [[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg" &
 
 # autolock screen after 10mins
-[[ -x "$HOME/.local/bin/locker" ]] && "$HOME/.local/bin/locker" 10 &
+xset +dpms
+xset s 600
+xsidle.sh slock &
 
 # composer
 compton --daemon --fade-delta=2
