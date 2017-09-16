@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
 
 if  [[ -d  /etc/X11/xinit/xinit.d ]]; then
   for f in /etx/X11/xinit/xinit.d.*; do
@@ -11,9 +7,17 @@ if  [[ -d  /etc/X11/xinit/xinit.d ]]; then
   unset f
 fi
 
-# Start profile
+# start profile
+[[ -f "$HOME/.xprofile" ]] && "$HOME/.xprofile"
 
-[[ -x "$HOME/.xprofile" ]] && "$HOME/.xprofile"
-
-# Start Window Manager
-[[ -x "$HOME/.exec-wm" ]] && "$HOME/.exec-wm"
+# start session
+session=${1:-i3}
+case $session in
+    dwm)
+        exec dwm ;;
+    i3|i3wm)
+        exec i3 ;;
+    # unknown, try executing as command
+    *)
+        exec $session ;;
+esac

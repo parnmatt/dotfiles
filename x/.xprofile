@@ -1,6 +1,4 @@
 #!/bin/bash
-#
-# ~/.xprofile
 
 # custom keys and themes
 setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
