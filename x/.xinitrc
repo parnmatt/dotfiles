@@ -11,7 +11,7 @@ fi
 [[ -f "$HOME/.xprofile" ]] && "$HOME/.xprofile"
 
 # start session
-session=${1:-i3}
+session=${1:-dwm}
 case $session in
     dwm)
         exec dwm ;;
