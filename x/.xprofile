@@ -2,11 +2,11 @@
 
 # custom keys and themes
 setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
-[[ -x "$HOME/.Xmodmap" ]] && xmodmap "$HOME/.Xmodmap"
-[[ -x "$HOME/.Xresources" ]] && xrdb -override "$HOME/.Xresources"
+[[ -x $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap
+[[ -x $HOME/.Xresources ]] && xrdb -override $HOME/.Xresources
 
 # background image
-[[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg" &
+[[ -x $HOME/.fehbg ]] && $HOME/.fehbg &
 
 # autolock screen after 10mins
 xset +dpms
