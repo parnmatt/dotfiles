@@ -13,6 +13,9 @@ xset +dpms
 xset s 600
 xsidle.sh slock &
 
+# status bar
+slstatus &
+
 # composer
 compton --daemon --fade-delta=2
 
