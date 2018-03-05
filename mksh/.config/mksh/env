@@ -1,0 +1,16 @@
+# environment settings
+
+# XDG base directories
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+# prompt based off of prezto:sorin
+PS1=$'\e[0m\e[1m\e[34m'"\${PWD/#\$HOME/\~} "$'\e[31m❯\e[33m❯\e[32m❯\e[0m '
+
+# editor
+export EDITOR=vis
+export EDITOR_RC=$XDG_CONFIG_HOME/vis/visrc.lua
+
+# set history
+HISTFILE=$XDG_CACHE_HOME/mksh/history

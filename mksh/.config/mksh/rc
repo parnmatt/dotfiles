@@ -1,0 +1,4 @@
+# config file for mksh
+
+source $XDG_CONFIG_HOME/mksh/env
+source $XDG_CONFIG_HOME/mksh/aliases

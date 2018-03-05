@@ -1,0 +1,5 @@
+# use XDG structure for mksh config
+
+config_dir=${XDG_CONFIG_HOME:=$HOME/.config}/mksh
+source $config_dir/rc
+unset config_dir
