@@ -3,3 +3,9 @@
 alias e="$EDITOR"
 alias erc="e $EDITOR_RC"
 alias q=exit
+
+alias ls="\ls --color"
+alias ll="ls -lh"
+alias la="ll -a"
+
+alias ..="cd .."
