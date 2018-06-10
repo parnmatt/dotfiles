@@ -9,8 +9,7 @@ setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
 [[ -x $HOME/.fehbg ]] && $HOME/.fehbg &
 
 # autolock screen after 10mins
-xset +dpms
-xset s 600
+xset s 600 +dpms
 xsidle.sh slock &
 
 # status bar
