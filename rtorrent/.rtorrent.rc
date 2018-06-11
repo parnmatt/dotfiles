@@ -3,24 +3,24 @@
 import = /etc/rtorrent/network.conf
 
 # -1 = same as downloading
-max_peers_seed = -1
+throttle.max_peers.seed.set = -1
 
 # protocals
-use_udp_trackers = yes
-dht = auto
+trackers.use_udp.set = yes
+dht.mode.set = auto
 
 # check for errors
-check_hash = yes
+pieces.hash.on_completion.set = yes
 
 # directories for torrents
-directory = ~/downloads
-session = ~/.cache/rtorrent
+directory.default.set = ~/downloads
+session.path.set = ~/.cache/rtorrent
 
 # automatic schedule
-schedule = watch_directory, 5, 5, "load_start=~/downloads/*.torrent"
-schedule = tied_directory, 5, 5, start_tied=
-schedule = untied_directory, 5, 5, stop_untied=
-schedule = low_diskspace, 5, 60, close_low_diskspace=100M
+schedule2 = watch_directory, 5, 5, "load.start=~/downloads/*.torrent"
+schedule2 = tied_directory, 5, 5, start_tied=
+schedule2 = untied_directory, 5, 5, stop_untied=
+schedule2 = low_diskspace, 5, 60, close_low_diskspace=100M
 
 # encrypt if available
-encryption = allow_incoming,try_outgoing,enable_retry
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
