@@ -1,6 +1,7 @@
 [user]
 	name = Matthew Parnell
 	email = matt@parnmatt.co.uk
+	signingkey = 0276F48B07F23AEED89A921CD81768AE13031F3B
 [push]
 	default = simple
 [receive]
