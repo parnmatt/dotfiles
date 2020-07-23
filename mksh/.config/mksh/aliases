@@ -1,5 +1,10 @@
 # aliases
 
+function kbd {
+	setxkbmap -layout us -option ctrl:nocaps -option compose:ralt
+	[[ -x $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap
+}
+
 alias e="$EDITOR"
 alias erc="e $EDITOR_RC"
 alias q=exit
