@@ -27,5 +27,9 @@ numlockx &
 # auto-hide mouse pointer
 unclutter &
 
+# input method
+[[ -x $HOME/.uimrc ]] && source $HOME/.uimrc
+uim-xim &
+
 # dropbox
 dropbox-cli start
