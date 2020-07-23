@@ -7,6 +7,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 # set history
 HISTFILE=$XDG_CACHE_HOME/mksh/history
+HISTSIZE=$(( (1<<16) - 1 ))
 
 # prompt based off of prezto:sorin
 PS1=$'\e[0m\e[1m\e[34m'"\${PWD/#\$HOME/\~} "$'\e[31m❯\e[33m❯\e[32m❯\e[0m '
