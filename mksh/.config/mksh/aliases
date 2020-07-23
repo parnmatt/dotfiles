@@ -14,3 +14,13 @@ alias ll="ls -lh"
 alias la="ll -a"
 
 alias ..="cd .."
+
+
+alias mk="cmake --build . --target"
+function mkl {
+	mk "$@" | less
+}
+function bld {
+	proj=$(realpath --relative-to=$DEV/builds $(pwd))
+	cmake -GNinja -DCMAKE_INSTALL_PREFIX:PATH=$DEV/staging/$proj "$@" $DEV/$proj
+}
